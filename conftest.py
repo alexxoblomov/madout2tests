@@ -1,8 +1,8 @@
-import time, pytest
-from appium import webdriver
+import time, pytest, questionary
 from appium.options.android import UiAutomator2Options
-from madout_apk import apk_path
-from madout_apk.apk_path import MadOutV16
+from appium.options.ios import XCUITestOptions
+from device_config import DEVICES
+from appium.webdriver import Remote
 
 """
 Подумать над тем, чтобы для каждого девайса сделать свою фикстуру
@@ -10,23 +10,37 @@ from madout_apk.apk_path import MadOutV16
 """
 
 
-@pytest.fixture
-def poco_x6_appium_driver():
-    options = UiAutomator2Options()  # Для Android
-    # options = XCUITestOptions()  # Для iOS
-
-    options.platform_name = 'Android'
-    options.device_name = 'PZW8WWFE49ZXLJDI'
-    options.platform_version = '14.0'
-    options.app = MadOutV16.app
-    options.automation_name = 'UiAutomator2'
-    options.no_reset = False
-
-    driver = webdriver.Remote(
-        command_executor='http://127.0.0.1:4723',
-        options=options
+def pytest_addoption(parser):
+    parser.addoption(
+        "--device",
+        action="store",
+        required=True,
+        choices=list(DEVICES.keys()),
+        help="Укажите устройство для тестов. Доступные варианты: %(choices)s"
     )
 
+def pytest_configure(config):
+    if config.getoption("--device") is None:
+        device = questionary.select(
+            "Выберите устройство:",
+            choices=list(DEVICES.keys()),
+        ).ask()
+        config.option.device = device
+
+@pytest.fixture
+def appium_driver(request):
+    device_name = request.config.getoption("--device")
+    device_config = DEVICES[device_name]
+
+    if device_config["platform_name"] == "Android":
+        options = UiAutomator2Options()
+    else:
+        options = XCUITestOptions()
+
+    for key, value in device_config.items():
+        setattr(options, key, value)
+
+    driver = Remote("http://127.0.0.1:4723", options=options)
     driver.implicitly_wait(10)
     yield driver
     driver.quit()
