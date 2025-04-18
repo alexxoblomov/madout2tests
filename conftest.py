@@ -1,7 +1,8 @@
 import time, pytest
 from appium import webdriver
 from appium.options.android import UiAutomator2Options
-
+from madout_apk import apk_path
+from madout_apk.apk_path import MadOutV16
 
 """
 Подумать над тем, чтобы для каждого девайса сделать свою фикстуру
@@ -17,9 +18,9 @@ def poco_x6_appium_driver():
     options.platform_name = 'Android'
     options.device_name = 'PZW8WWFE49ZXLJDI'
     options.platform_version = '14.0'
-    options.app = 'C:\\Android-versions_16-9136f58dd5-1744698918.apk' # подумать, как не хардкодить путь к apk
+    options.app = MadOutV16.app
     options.automation_name = 'UiAutomator2'
-    options.no_reset = True
+    options.no_reset = False
 
     driver = webdriver.Remote(
         command_executor='http://127.0.0.1:4723',
