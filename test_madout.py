@@ -15,6 +15,7 @@ def test_clans_quick_join(appium_driver):
     5. Нажимаем на кнопку быстрого присоединения;
     6. Проверяем, что действительно оказались в мете клана.
     """
+
     enter_dev_lobby(PocoX6, appium_driver)
 
     element_is_present(Templates.CLAN_ENTRY, 0.90, appium_driver)
