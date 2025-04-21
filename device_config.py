@@ -5,7 +5,7 @@ DEVICES = {
         "platform_name": "Android",
         "device_name": "PZW8WWFE49ZXLJDI",
         "platform_version": "14.0",
-        "app": MadOutV16.app,
+        "app": MadOutV16.APP_PATH,
         "automation_name": "UiAutomator2",
         "no_reset": False,
     }

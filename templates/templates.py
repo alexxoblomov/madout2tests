@@ -9,3 +9,6 @@ class Templates:
     CLAN_ENTRY = TEMPLATES_DIR / "clans" / "clan_entry.png"
     QUICK_JOIN = TEMPLATES_DIR / "clans" / "quick_join.png"
     CLAN_META = TEMPLATES_DIR / "clans" / "clan_meta.png"
+
+    #
+    LOGIN_SCREEN = TEMPLATES_DIR / "login_screen" / "login_screen.png"

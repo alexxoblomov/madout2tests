@@ -46,6 +46,17 @@ def appium_driver(request):
     driver.quit()
 
 
+def enter_login_screen(device, appium_driver: object) -> None:
+    time.sleep(8)
+
+    device.EnvScreen.DEV.tap(appium_driver)
+    time.sleep(2)
+    device.EnvScreen.CLOSE.tap(appium_driver)
+    time.sleep(2)
+
+    device.LoginScreen.TOS_CONFIRM.tap(appium_driver)
+    time.sleep(3)
+
 def enter_dev_lobby(device, appium_driver: object) -> None:
     """
     +++ ~60 sec. to the test, where used
