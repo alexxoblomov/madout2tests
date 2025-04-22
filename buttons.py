@@ -27,13 +27,16 @@ class PocoX6:
         CLAN_QUICK_JOIN = Button(x=1666, y=1112)
 
     class DeviceKeyboard:
-        pass
+        BACK = Button(x=2653, y=331)
 
     class LoginScreen:
-        TOS_CONFIRM = Button(x=1342, y=855)
+        WELCOME_SCREEN = Button(x=1342, y=855)
         GUEST_LOGIN = Button(x=780, y=880)
-        PROLOGUE_SKIP = Button(x=37, y=1167)
-
+        PROLOGUE_SKIP = Button(x=24, y=1172)
+        GOOGLE_LOGIN = Button(x=1542, y=880)
+        FACEBOOK_LOGIN = Button(x=1180, y=880)
+        TERMS_OF_SERVICE = Button(x=1186, y=568)
+        PRIVACY_POLICY = Button(x=1523, y=568)
 
     class EnvScreen:
         CLOSE = Button(x=2541, y=169)

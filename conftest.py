@@ -1,13 +1,8 @@
 import time, pytest, questionary
 from appium.options.android import UiAutomator2Options
 from appium.options.ios import XCUITestOptions
-from device_config import DEVICES
 from appium.webdriver import Remote
-
-"""
-Подумать над тем, чтобы для каждого девайса сделать свою фикстуру
-Например - def poco_x6_appium_driver()
-"""
+from devices import get_device_class, DEVICES
 
 
 def pytest_addoption(parser):
@@ -19,6 +14,13 @@ def pytest_addoption(parser):
         help="Укажите устройство для тестов. Доступные варианты: %(choices)s"
     )
 
+
+@pytest.fixture(scope="session")
+def device_name(request):
+    get_device_name = request.config.getoption("--device")
+    return get_device_class(get_device_name)
+
+
 def pytest_configure(config):
     if config.getoption("--device") is None:
         device = questionary.select(
@@ -27,10 +29,11 @@ def pytest_configure(config):
         ).ask()
         config.option.device = device
 
+
 @pytest.fixture
 def appium_driver(request):
-    device_name = request.config.getoption("--device")
-    device_config = DEVICES[device_name]
+    device = request.config.getoption("--device")
+    device_config = DEVICES[device]
 
     if device_config["platform_name"] == "Android":
         options = UiAutomator2Options()
@@ -46,41 +49,41 @@ def appium_driver(request):
     driver.quit()
 
 
-def enter_login_screen(device, appium_driver: object) -> None:
+def enter_login_screen(device_name, appium_driver: object) -> None:
     time.sleep(8)
 
-    device.EnvScreen.DEV.tap(appium_driver)
+    device_name.EnvScreen.DEV.tap(appium_driver)
     time.sleep(2)
-    device.EnvScreen.CLOSE.tap(appium_driver)
+    device_name.EnvScreen.CLOSE.tap(appium_driver)
     time.sleep(2)
 
-    device.LoginScreen.TOS_CONFIRM.tap(appium_driver)
+    device_name.LoginScreen.WELCOME_SCREEN.tap(appium_driver)
     time.sleep(3)
 
-def enter_dev_lobby(device, appium_driver: object) -> None:
+def enter_dev_lobby(device_name, appium_driver: object) -> None:
     """
     +++ ~60 sec. to the test, where used
     Подумать над превращением этой функции в фикстуру
     """
     time.sleep(8)
 
-    device.EnvScreen.DEV.tap(appium_driver)
+    device_name.EnvScreen.DEV.tap(appium_driver)
     time.sleep(1)
-    device.EnvScreen.CLOSE.tap(appium_driver)
+    device_name.EnvScreen.CLOSE.tap(appium_driver)
     time.sleep(2)
 
-    device.LoginScreen.TOS_CONFIRM.tap(appium_driver)
+    device_name.LoginScreen.WELCOME_SCREEN.tap(appium_driver)
     time.sleep(2)
-    device.LoginScreen.GUEST_LOGIN.tap(appium_driver)
-    time.sleep(35)
-    device.LoginScreen.PROLOGUE_SKIP.tap(appium_driver)
+    device_name.LoginScreen.GUEST_LOGIN.tap(appium_driver)
+    time.sleep(25)
+    device_name.LoginScreen.PROLOGUE_SKIP.tap(appium_driver)
     time.sleep(5)
 
-    device.MainLobby.GROW_FOUND_POPUP_CLOSE.tap(appium_driver)
+    device_name.MainLobby.GROW_FOUND_POPUP_CLOSE.tap(appium_driver)
     time.sleep(1)
-    device.MainLobby.UPPER_RIGHT_CORNER.tap(appium_driver)
+    device_name.MainLobby.UPPER_RIGHT_CORNER.tap(appium_driver)
     time.sleep(3)
-    device.MainLobby.DAILY_LOGIN_REWARD_POPUP_CLOSE.tap(appium_driver)
+    device_name.MainLobby.DAILY_LOGIN_REWARD_POPUP_CLOSE.tap(appium_driver)
     time.sleep(1)
 
 
