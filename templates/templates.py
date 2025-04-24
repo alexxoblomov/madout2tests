@@ -27,11 +27,11 @@ class Templates:
     TERMS_OF_SERVICE = TEMPLATES_DIR / "test_login" / "test_tos_and_privacy_policy" / "terms_of_service.png"
 
     # test_buy_some_stuff
-    CAR_BUGGY_REWARD_POPUP = TEMPLATES_DIR / "car_shop" / "car_buggy_reward_popup.png"
-    GOLD_CHAIN_REWARD_POPUP = TEMPLATES_DIR / "appearance_shop" / "gold_chain_reward_popup.png"
-    FNP_45_REWARD_POPUP = TEMPLATES_DIR / "weapon_shop" / "fnp_45_reward_popup.png"
+    CAR_BUGGY_REWARD_POPUP = TEMPLATES_DIR / "test_buy_some_stuff" /"car_shop" / "car_buggy_reward_popup.png"
+    GOLD_CHAIN_REWARD_POPUP = TEMPLATES_DIR / "test_buy_some_stuff" / "appearance_shop" / "gold_chain_reward_popup.png"
+    FNP_45_REWARD_POPUP = TEMPLATES_DIR / "test_buy_some_stuff" / "weapon_shop" / "fnp_45_reward_popup.png"
 
     # test_enter_shops
-    APPEARANCE_PRESETS = TEMPLATES_DIR / "appearance_shop" / "appearance_presets.png"
-    WEAPON_SHOP = TEMPLATES_DIR / "weapon_shop" / "weapon_shop.png"
-    CAR_SHOP_CITIZEN = TEMPLATES_DIR / "car_shop" / "car_shop_citizen.png"
+    APPEARANCE_PRESETS = TEMPLATES_DIR / "test_enter_shops" / "appearance_shop" / "appearance_presets.png"
+    WEAPON_SHOP = TEMPLATES_DIR / "test_enter_shops" / "weapon_shop" / "weapon_shop.png"
+    CAR_SHOP_CITIZEN = TEMPLATES_DIR / "test_enter_shops" / "car_shop" / "car_shop_citizen.png"
