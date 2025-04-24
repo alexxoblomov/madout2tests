@@ -1,23 +1,37 @@
 from pathlib import Path
 
+"""
+Рассмотреть возможность объединения шаблонов в разные классы-устройства
+На случай, если единственный класс Template не будет подходить для нашего парка
+"""
 
 class Templates:
     BASE_DIR = Path(__file__).parent.parent
     TEMPLATES_DIR = BASE_DIR / "templates"
 
-    # clans
-    CLAN_ENTRY = TEMPLATES_DIR / "clans" / "clan_entry.png"
-    QUICK_JOIN = TEMPLATES_DIR / "clans" / "quick_join.png"
-    CLAN_META = TEMPLATES_DIR / "clans" / "clan_meta.png"
+    # test_clans_quick_join
+    CLAN_ENTRY = TEMPLATES_DIR / "test_clans" / "test_clans_quick_join" / "clan_entry.png"
+    QUICK_JOIN = TEMPLATES_DIR / "test_clans" / "test_clans_quick_join" / "quick_join.png"
+    CLAN_META = TEMPLATES_DIR / "test_clans" / "test_clans_quick_join" / "clan_meta.png"
 
-    # login screen
-    WELCOME_SCREEN = TEMPLATES_DIR / "login_screen" / "welcome_screen.png"
-    LOGIN_SCREEN = TEMPLATES_DIR / "login_screen" / "login_screen.png"
-    GOOGLE_LOGIN = TEMPLATES_DIR / "login_screen" / "google_login.png"
-    FACEBOOK_LOGIN = TEMPLATES_DIR / "login_screen" / "facebook_login.png"
-    GOOGLE_ACCOUNTS = TEMPLATES_DIR / "login_screen" / "google_accounts.png"
-    FACEBOOK_HEADER = TEMPLATES_DIR / "login_screen" / "facebook_header.png"
-    PRIVACY_POLICY = TEMPLATES_DIR / "login_screen" / "privacy_policy.png"
-    TERMS_OF_SERVICE = TEMPLATES_DIR / "login_screen" / "terms_of_service.png"
+    # test_ways_to_login
+    LOGIN_SCREEN = TEMPLATES_DIR / "test_login" / "test_ways_to_login" / "login_screen.png"
+    GOOGLE_LOGIN = TEMPLATES_DIR / "login_screen" / "test_ways_to_login" / "google_login.png"
+    FACEBOOK_LOGIN = TEMPLATES_DIR / "login_screen" / "test_ways_to_login" / "facebook_login.png"
+    GOOGLE_ACCOUNTS = TEMPLATES_DIR / "login_screen" / "test_ways_to_login" / "google_accounts.png"
+    FACEBOOK_HEADER = TEMPLATES_DIR / "login_screen" / "test_ways_to_login" / "facebook_header.png"
 
-    # main lobby
+    # test_tos_and_privacy_policy
+    WELCOME_SCREEN = TEMPLATES_DIR / "test_login" / "test_tos_and_privacy_policy" / "welcome_screen.png"
+    PRIVACY_POLICY = TEMPLATES_DIR / "test_login" / "test_tos_and_privacy_policy" / "privacy_policy.png"
+    TERMS_OF_SERVICE = TEMPLATES_DIR / "test_login" / "test_tos_and_privacy_policy" / "terms_of_service.png"
+
+    # test_buy_some_stuff
+    CAR_BUGGY_REWARD_POPUP = TEMPLATES_DIR / "car_shop" / "car_buggy_reward_popup.png"
+    GOLD_CHAIN_REWARD_POPUP = TEMPLATES_DIR / "appearance_shop" / "gold_chain_reward_popup.png"
+    FNP_45_REWARD_POPUP = TEMPLATES_DIR / "weapon_shop" / "fnp_45_reward_popup.png"
+
+    # test_enter_shops
+    APPEARANCE_PRESETS = TEMPLATES_DIR / "appearance_shop" / "appearance_presets.png"
+    WEAPON_SHOP = TEMPLATES_DIR / "weapon_shop" / "weapon_shop.png"
+    CAR_SHOP_CITIZEN = TEMPLATES_DIR / "car_shop" / "car_shop_citizen.png"

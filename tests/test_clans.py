@@ -1,4 +1,4 @@
-import time
+import time, pytest
 from templates.templates import Templates
 from basic import element_is_present
 from conftest import enter_dev_lobby

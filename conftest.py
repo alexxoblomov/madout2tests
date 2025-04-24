@@ -75,15 +75,15 @@ def enter_dev_lobby(device_name, appium_driver: object) -> None:
     device_name.LoginScreen.WELCOME_SCREEN.tap(appium_driver)
     time.sleep(2)
     device_name.LoginScreen.GUEST_LOGIN.tap(appium_driver)
-    time.sleep(25)
+    time.sleep(45)
     device_name.LoginScreen.PROLOGUE_SKIP.tap(appium_driver)
     time.sleep(5)
 
     device_name.MainLobby.GROW_FOUND_POPUP_CLOSE.tap(appium_driver)
     time.sleep(1)
-    device_name.MainLobby.UPPER_RIGHT_CORNER.tap(appium_driver)
-    time.sleep(3)
     device_name.MainLobby.DAILY_LOGIN_REWARD_POPUP_CLOSE.tap(appium_driver)
+    time.sleep(3)
+    device_name.MainLobby.CLAIM_REWARD_POPUP.tap(appium_driver)
     time.sleep(1)
 
 

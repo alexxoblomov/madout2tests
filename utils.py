@@ -1,7 +1,6 @@
+import inspect, os, cv2
 from datetime import datetime
-import os
 from typing import Optional, Tuple
-import cv2
 
 
 def get_screenshot(driver, filename: Optional[str] = None, save_dir: str = "screenshots") -> str:
@@ -9,7 +8,18 @@ def get_screenshot(driver, filename: Optional[str] = None, save_dir: str = "scre
 
     if filename is None:
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        filename = f"screenshot_{timestamp}.png"
+        test_name = None
+        stack = inspect.stack()
+
+        for frame in stack:
+            if frame.function.startswith("test_"):
+                test_name = frame.function
+                break
+
+        if test_name:
+            filename = f"{test_name}_{timestamp}.png"
+        else:
+            filename = f"screenshot_{timestamp}.png"
 
     filepath = os.path.join(save_dir, filename)
 
