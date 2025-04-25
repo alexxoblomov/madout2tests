@@ -9,6 +9,12 @@ class Templates:
     BASE_DIR = Path(__file__).parent.parent
     TEMPLATES_DIR = BASE_DIR / "templates"
 
+    # test_guest_login_and_check_server_list
+    LOBBY_SCREEN = TEMPLATES_DIR / "test_lobby" / "test_guest_login_and_check_server_list" / "lobby_screen.png"
+    EMPTY_SERVER_LIST = TEMPLATES_DIR / "test_lobby" / "test_guest_login_and_check_server_list" / "empty_server_list.png"
+
+    # test_google_login
+
     # test_clans_quick_join
     CLAN_ENTRY = TEMPLATES_DIR / "test_clans" / "test_clans_quick_join" / "clan_entry.png"
     QUICK_JOIN = TEMPLATES_DIR / "test_clans" / "test_clans_quick_join" / "quick_join.png"
@@ -23,8 +29,8 @@ class Templates:
 
     # test_tos_and_privacy_policy
     WELCOME_SCREEN = TEMPLATES_DIR / "test_login" / "test_tos_and_privacy_policy" / "welcome_screen.png"
-    PRIVACY_POLICY = TEMPLATES_DIR / "test_login" / "test_tos_and_privacy_policy" / "privacy_policy.png"
-    TERMS_OF_SERVICE = TEMPLATES_DIR / "test_login" / "test_tos_and_privacy_policy" / "terms_of_service.png"
+    # PRIVACY_POLICY = TEMPLATES_DIR / "test_login" / "test_tos_and_privacy_policy" / "privacy_policy.png"
+    # TERMS_OF_SERVICE = TEMPLATES_DIR / "test_login" / "test_tos_and_privacy_policy" / "terms_of_service.png"
 
     # test_buy_some_stuff
     CAR_BUGGY_REWARD_POPUP = TEMPLATES_DIR / "test_buy_some_stuff" /"car_shop" / "car_buggy_reward_popup.png"

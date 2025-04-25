@@ -61,10 +61,6 @@ def enter_login_screen(device_name, appium_driver: object) -> None:
     time.sleep(3)
 
 def enter_dev_lobby(device_name, appium_driver: object) -> None:
-    """
-    +++ ~60 sec. to the test, where used
-    Подумать над превращением этой функции в фикстуру
-    """
     time.sleep(8)
 
     device_name.EnvScreen.DEV.tap(appium_driver)
@@ -88,8 +84,4 @@ def enter_dev_lobby(device_name, appium_driver: object) -> None:
 
 
 def enter_prod_lobby(device, appium_driver: object) -> None:
-    """
-    +++ ~60 sec. to the test, where used
-    Подумать над превращением этой функции в фикстуру
-    """
     pass

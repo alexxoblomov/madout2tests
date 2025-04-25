@@ -13,12 +13,17 @@ class PocoX6:
     class MainLobby:
         CLAN_ENTRY = Button(x=2022, y=1080)
         # CLOSE_REWARD_POPUP = Button(x=2672, y=194)
+
         CLAIM_REWARD_POPUP = Button(x=1355, y=1005)
         GROW_FOUND_POPUP_CLOSE = Button(x=2322, y=219)
         DAILY_LOGIN_REWARD_POPUP_CLOSE = Button(x=2485, y=69)
+
         CAR_SHOP = Button(x=1130, y=640)
         APPEARANCE_SHOP = Button(x=1598, y=400)
         WEAPON_SHOP = Button(x=1885, y=581)
+
+        ONLINE_GAME = Button(x=2404, y=965)
+        SERVER_LIST = Button(x=2060, y=934)
 
     class MainShop:
         BACK = Button(x=175, y=56)
@@ -61,8 +66,13 @@ class PocoX6:
         PROLOGUE_SKIP = Button(x=24, y=1172)
         GOOGLE_LOGIN = Button(x=1542, y=880)
         FACEBOOK_LOGIN = Button(x=1180, y=880)
+
         TERMS_OF_SERVICE = Button(x=1186, y=568)
+        TOS_XPATH = '//android.widget.TextView[@text="MadOut 2| Terms of Use"]'
+
         PRIVACY_POLICY = Button(x=1523, y=568)
+        PP_XPATH = '//android.widget.TextView[@text="Madout 2 | Privacy Policy "]'
+
 
     class EnvScreen:
         CLOSE = Button(x=2541, y=169)
