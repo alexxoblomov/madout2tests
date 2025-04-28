@@ -18,6 +18,7 @@ class PocoX6:
         GROW_FOUND_POPUP_CLOSE = Button(x=2322, y=219)
         DAILY_LOGIN_REWARD_POPUP_CLOSE = Button(x=2485, y=69)
 
+        MAIN_SHOP = Button(x=387, y=1111)
         CAR_SHOP = Button(x=1130, y=640)
         APPEARANCE_SHOP = Button(x=1598, y=400)
         WEAPON_SHOP = Button(x=1885, y=581)
@@ -27,6 +28,7 @@ class PocoX6:
 
     class MainShop:
         BACK = Button(x=175, y=56)
+        ADS = Button(x=318, y=1118)
 
     class CarShop:
         ALREADY_HAVE = Button(x=306, y=331)
@@ -50,7 +52,6 @@ class PocoX6:
         BUY_AMMO = Button(x=1873, y=1130)
         BUY_AMMO_MIN = Button(x=1879, y=968)
 
-
     class MainClans:
         pass
 
@@ -61,11 +62,13 @@ class PocoX6:
         BACK = Button(x=2653, y=331)
 
     class LoginScreen:
+        # DEV БИЛД
         WELCOME_SCREEN = Button(x=1342, y=855)
         GUEST_LOGIN = Button(x=780, y=880)
         PROLOGUE_SKIP = Button(x=24, y=1172)
         GOOGLE_LOGIN = Button(x=1542, y=880)
         FACEBOOK_LOGIN = Button(x=1180, y=880)
+        #
 
         TERMS_OF_SERVICE = Button(x=1186, y=568)
         TOS_XPATH = '//android.widget.TextView[@text="MadOut 2| Terms of Use"]'

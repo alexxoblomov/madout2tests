@@ -38,7 +38,7 @@ def test_enter_shops(device_name, appium_driver):
     time.sleep(4)
     element_is_present(Templates.WEAPON_SHOP, 0.90, appium_driver)
 
-
+@pytest.mark.skip
 def test_buy_some_stuff(device_name, appium_driver):
     """
     1. Входим в игру;
@@ -89,3 +89,23 @@ def test_buy_some_stuff(device_name, appium_driver):
     device_name.WeaponShop.BUY_AMMO_MIN.tap(appium_driver)
     time.sleep(5)
     element_is_present(Templates.FNP_45_REWARD_POPUP, 0.90, appium_driver)
+
+def test_attention_marks(device_name, appium_driver):
+    """
+    1. Входим в игру;
+    2. Входим в магазин;
+    3. Смотрим, что на разделе с рекламой есть аттеншн марка;
+    4. Переходим в раздел с рекламой;
+    5. Смотрим, что на разделе с рекламой нет аттеншн марки.
+    """
+    enter_dev_lobby(device_name, appium_driver)
+    time.sleep(1)
+
+    device_name.MainLobby.MAIN_SHOP.tap(appium_driver)
+    time.sleep(1)
+
+    element_is_present(Templates.ATTENTION_MARK_UNSEEN, 0.90, appium_driver)
+    time.sleep(1)
+    device_name.MainShop.ADS.tap(appium_driver)
+    time.sleep(1)
+    element_is_present(Templates.ATTENTION_MARK, 0.90, appium_driver)

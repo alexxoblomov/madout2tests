@@ -41,3 +41,7 @@ class Templates:
     APPEARANCE_PRESETS = TEMPLATES_DIR / "test_enter_shops" / "appearance_shop" / "appearance_presets.png"
     WEAPON_SHOP = TEMPLATES_DIR / "test_enter_shops" / "weapon_shop" / "weapon_shop.png"
     CAR_SHOP_CITIZEN = TEMPLATES_DIR / "test_enter_shops" / "car_shop" / "car_shop_citizen.png"
+
+    # test_attention_marks
+    ATTENTION_MARK_UNSEEN = TEMPLATES_DIR / "test_shops" / "test_attention_marks" / "attention_mark_unseen.png"
+    ATTENTION_MARK = TEMPLATES_DIR / "test_shops" / "test_attention_marks" / "attention_mark.png"

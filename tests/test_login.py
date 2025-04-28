@@ -16,7 +16,7 @@ def test_guest_login_and_check_server_list(device_name, appium_driver):
     time.sleep(2)
     device_name.MainLobby.SERVER_LIST.tap(appium_driver)
     time.sleep(5)
-    element_is_not_present(Templates.EMPTY_SERVER_LIST, 0.90, appium_driver)
+    element_is_not_present(Templates.EMPTY_SERVER_LIST, 0.80, appium_driver)
 
 
 @pytest.mark.skip
