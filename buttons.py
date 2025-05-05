@@ -12,6 +12,10 @@ class Button:
 class PocoX6:
     class MainLobby:
         CLAN_ENTRY = Button(x=2022, y=1080)
+        BATTLE_PASS_ENTRY = Button(x=1355, y=1093)
+        DAILY_LOGIN = Button(x=980, y=69)
+        QUESTS_ENTRY = Button(x=2404, y=400)
+        GROW_FOUND_ENTRY = Button(x=318, y=231)
         # CLOSE_REWARD_POPUP = Button(x=2672, y=194)
 
         CLAIM_REWARD_POPUP = Button(x=1355, y=1005)
@@ -29,6 +33,24 @@ class PocoX6:
     class MainShop:
         BACK = Button(x=175, y=56)
         ADS = Button(x=318, y=1118)
+
+    class GrowFound:
+        CLAIM_1LVL_REWARD = Button(x=1330, y=468)
+        CLAIM_REWARD_POPUP = Button(x=1355, y=1005)
+
+    class Quests:
+        CLAIM_ALL_REWARDS = Button(x=2254, y=1130)
+        CLAIM_REWARD_POPUP = Button(x=1355, y=1005)
+
+    class DailyLogin:
+        WEEK_2 = Button(x=1274, y=1093)
+        WEEK_3 = Button(x=1679, y=1093)
+        WEEK_4 = Button(x=2135, y=1093)
+
+    class BattlePass:
+        CLAIM_REWARDS = Button(x=1873, y=1118)
+        BUY_PREMIUM = Button(x=1367, y=1130)
+        CLAIM_REWARD_POPUP = Button(x=1355, y=1005)
 
     class CarShop:
         ALREADY_HAVE = Button(x=306, y=331)

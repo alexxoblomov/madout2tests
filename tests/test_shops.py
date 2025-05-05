@@ -62,6 +62,7 @@ def test_buy_some_stuff(device_name, appium_driver):
     element_is_present(Templates.CAR_BUGGY_REWARD_POPUP, 0.90, appium_driver)
     time.sleep(2)
     device_name.MainLobby.CLAIM_REWARD_POPUP.tap(appium_driver)
+    # смотреть цену
     time.sleep(5)
 
     device_name.CarShop.APPEARANCE_SHOP.tap(appium_driver)
@@ -76,6 +77,7 @@ def test_buy_some_stuff(device_name, appium_driver):
     element_is_present(Templates.GOLD_CHAIN_REWARD_POPUP, 0.90, appium_driver)
     time.sleep(2)
     device_name.MainLobby.CLAIM_REWARD_POPUP.tap(appium_driver)
+    # смотреть цену
     time.sleep(5)
 
     device_name.AppearanceShop.WEAPON_SHOP.tap(appium_driver)
@@ -89,14 +91,18 @@ def test_buy_some_stuff(device_name, appium_driver):
     device_name.WeaponShop.BUY_AMMO_MIN.tap(appium_driver)
     time.sleep(5)
     element_is_present(Templates.FNP_45_REWARD_POPUP, 0.90, appium_driver)
+    device_name.MainLobby.CLAIM_REWARD_POPUP.tap(appium_driver)
+    # смотреть цену
 
-def test_attention_marks(device_name, appium_driver):
+def test_attention_mark(device_name, appium_driver):
     """
     1. Входим в игру;
     2. Входим в магазин;
     3. Смотрим, что на разделе с рекламой есть аттеншн марка;
     4. Переходим в раздел с рекламой;
     5. Смотрим, что на разделе с рекламой нет аттеншн марки.
+
+    Важно! Стоит рассмотреть другой способ проверки аттеншн марок, этот мне кажется ненадежным.
     """
     enter_dev_lobby(device_name, appium_driver)
     time.sleep(1)

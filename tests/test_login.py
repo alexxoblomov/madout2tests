@@ -1,13 +1,22 @@
 import time, pytest
 from templates.templates import Templates
 from basic import element_is_present, check_element_by_xpath, element_is_not_present
-from conftest import enter_dev_lobby
+from conftest import enter_dev_lobby, enter_login_screen
+
+
+def test_login_screen_state(device_name, appium_driver):
+    """
+    """
+    enter_login_screen(device_name, appium_driver)
+    element_is_present(Templates.LOGIN_SCREEN, 0.90, appium_driver)
 
 
 def test_guest_login_and_check_server_list(device_name, appium_driver):
     """
     1. Логинимся в игру гостем;
-    2. Проверяем, что оказались в лобби.
+    2. Проверяем, что оказались в лобби;
+    3. Переходим к списку серверов для игры;
+    4. Проверяем, что лист серверов не пустой.
     """
     enter_dev_lobby(device_name, appium_driver)
     time.sleep(5)

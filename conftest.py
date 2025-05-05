@@ -60,6 +60,7 @@ def enter_login_screen(device_name, appium_driver: object) -> None:
     device_name.LoginScreen.WELCOME_SCREEN.tap(appium_driver)
     time.sleep(3)
 
+
 def enter_dev_lobby(device_name, appium_driver: object) -> None:
     time.sleep(8)
 

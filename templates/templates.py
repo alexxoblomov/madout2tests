@@ -20,12 +20,8 @@ class Templates:
     QUICK_JOIN = TEMPLATES_DIR / "test_clans" / "test_clans_quick_join" / "quick_join.png"
     CLAN_META = TEMPLATES_DIR / "test_clans" / "test_clans_quick_join" / "clan_meta.png"
 
-    # test_ways_to_login
-    LOGIN_SCREEN = TEMPLATES_DIR / "test_login" / "test_ways_to_login" / "login_screen.png"
-    GOOGLE_LOGIN = TEMPLATES_DIR / "login_screen" / "test_ways_to_login" / "google_login.png"
-    FACEBOOK_LOGIN = TEMPLATES_DIR / "login_screen" / "test_ways_to_login" / "facebook_login.png"
-    GOOGLE_ACCOUNTS = TEMPLATES_DIR / "login_screen" / "test_ways_to_login" / "google_accounts.png"
-    FACEBOOK_HEADER = TEMPLATES_DIR / "login_screen" / "test_ways_to_login" / "facebook_header.png"
+    # test_login_screen_state
+    LOGIN_SCREEN = TEMPLATES_DIR / "test_login" / "test_login_screen_state" / "login_screen.png"
 
     # test_tos_and_privacy_policy
     WELCOME_SCREEN = TEMPLATES_DIR / "test_login" / "test_tos_and_privacy_policy" / "welcome_screen.png"
@@ -45,3 +41,27 @@ class Templates:
     # test_attention_marks
     ATTENTION_MARK_UNSEEN = TEMPLATES_DIR / "test_shops" / "test_attention_marks" / "attention_mark_unseen.png"
     ATTENTION_MARK = TEMPLATES_DIR / "test_shops" / "test_attention_marks" / "attention_mark.png"
+
+    # test_claim_battle_pass_reward
+    BATTLE_PASS_ENTRY = TEMPLATES_DIR / "test_lobby" / "test_claim_battle_pass_reward" / "battle_pass_entry.png"
+    BATTLE_PASS_MAIN = TEMPLATES_DIR /  "test_lobby" / "test_claim_battle_pass_reward" / "battle_pass_main.png"
+    BATTLE_PASS_1LVL_REWARD = TEMPLATES_DIR /  "test_lobby" / "test_claim_battle_pass_reward" / "battle_pass_1lvl_reward.png"
+    BATTLE_PASS_BUY_PREMIUM = TEMPLATES_DIR /  "test_lobby" / "test_claim_battle_pass_reward" / "battle_pass_buy_premium.png"
+
+    # test_daily_login
+    WEEK_1 = TEMPLATES_DIR / "test_lobby" / "test_daily_login" / "week_1.png"
+    WEEK_2 = TEMPLATES_DIR / "test_lobby" / "test_daily_login" / "week_2.png"
+    WEEK_3 = TEMPLATES_DIR / "test_lobby" / "test_daily_login" / "week_3.png"
+    WEEK_4 = TEMPLATES_DIR / "test_lobby" / "test_daily_login" / "week_4.png"
+
+    # test_claim_client_quest
+    QUESTS_ENTRY = TEMPLATES_DIR / "test_lobby" / "test_claim_client_quest" / "quests_entry.png"
+    CLAIM_ALL_REWARDS = TEMPLATES_DIR / "test_lobby" / "test_claim_client_quest" / "claim_all_rewards.png"
+    QUEST_REWARD_POPUP = TEMPLATES_DIR / "test_lobby" / "test_claim_client_quest" / "quest_reward_popup.png"
+    CLAIM_ALL_REWARDS_DISABLED = TEMPLATES_DIR / "test_lobby" / "test_claim_client_quest" / "claim_all_rewards_disabled.png"
+
+    # test_claim_grow_found_reward
+    GROW_FOUND_ENTRY = TEMPLATES_DIR / "test_lobby" / "test_claim_grow_found_reward" / "grow_found_entry.png"
+    GROW_FOUND_MAIN = TEMPLATES_DIR / "test_lobby" / "test_claim_grow_found_reward" / "grow_found_main.png"
+    GROW_FOUND_1LVL_REWARD = TEMPLATES_DIR / "test_lobby" / "test_claim_grow_found_reward" / "grow_found_1lvl_reward.png"
+    CLAIMED_1LVL_FREE_REWARD = TEMPLATES_DIR / "test_lobby" / "test_claim_grow_found_reward" / "claimed_1lvl_free_reward.png"
