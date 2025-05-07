@@ -11,7 +11,7 @@ class Button:
 
 class PocoX6:
     class MainLobby:
-        CLAN_ENTRY = Button(x=2022, y=1080)
+        CLAN_ENTRY_POINT = Button(x=2022, y=1080)
         BATTLE_PASS_ENTRY = Button(x=1355, y=1093)
         DAILY_LOGIN = Button(x=980, y=69)
         QUESTS_ENTRY = Button(x=2404, y=400)
@@ -34,6 +34,22 @@ class PocoX6:
         BACK = Button(x=175, y=56)
         ADS = Button(x=318, y=1118)
 
+    class MainClans:
+        CLAN_CREATE_CONFIRM = Button(x=1355, y=1055)
+        CLAN_SETTINGS = Button(x=768, y=1105)
+        CLAN_DELETE = Button(x=1267, y=169)
+        CLAN_DELETE_STRING = Button(x=1355, y=599)
+        CLAN_DELETE_CONFIRM = Button(x=1118, y=905)
+
+    class CreateClan:
+        # create screen
+        CLAN_NAME = Button(x=549, y=243)
+        CREATE_CLAN_BUTTON = Button(x=624, y=1130)
+
+    class ClansSearch:
+        CLAN_QUICK_JOIN = Button(x=1666, y=1112)
+        CREATE_CLAN_BUTTON = Button(x=2322, y=1111)
+
     class GrowFound:
         CLAIM_1LVL_REWARD = Button(x=1330, y=468)
         CLAIM_REWARD_POPUP = Button(x=1355, y=1005)
@@ -55,10 +71,18 @@ class PocoX6:
     class CarShop:
         ALREADY_HAVE = Button(x=306, y=331)
         SPECIAL = Button(x=312, y=1118)
+        APPEARANCE_SHOP = Button(x=169, y=805)
+
         REVEAL_LIST = Button(x=780, y=724)
         CAR_BUGGY = Button(x=1698, y=518)
+
+        CLAIM_REWARD_POPUP = Button(x=1355, y=1005)
+
+        # Надо что-то с неймингом сделать, определенно
         BUY = Button(x=2397, y=1130)
-        APPEARANCE_SHOP = Button(x=169, y=805)
+        UPGRADE = Button(x=2010, y=1130)
+        BUY_UPGRADE = Button(x=2340, y=1130)
+        BUY_UPGRADE_CONFIRM = Button(x=1700, y=1130)
 
     class AppearanceShop:
         APPEARANCE_PRESETS = Button(x=306,y=1118)
@@ -73,12 +97,6 @@ class PocoX6:
         FNP_45 = Button(x=643, y=668)
         BUY_AMMO = Button(x=1873, y=1130)
         BUY_AMMO_MIN = Button(x=1879, y=968)
-
-    class MainClans:
-        pass
-
-    class ClansSearch:
-        CLAN_QUICK_JOIN = Button(x=1666, y=1112)
 
     class DeviceKeyboard:
         BACK = Button(x=2653, y=331)
@@ -100,6 +118,15 @@ class PocoX6:
 
 
     class EnvScreen:
+        ACTIVE_SYSTEMS = Button(x=1349, y=1039)
+        CLOSE_ACTIVE_SYSTEMS = Button(x=2366, y=81)
+
+        ACTIVE_SYSTEMS_FLAGS = Button(x=705, y=69)
+        LOGS_REPORTER = Button(x=219, y=306)
+        AUTO_PRESENTATION = Button(x=955, y=318)
+        SHOW_LOADING_UI = Button(x=955, y=755)
+        SHOW_POPUPS = Button(x=1698, y=755)
+
         CLOSE = Button(x=2541, y=169)
 
         DEV = Button(x=431, y=755)

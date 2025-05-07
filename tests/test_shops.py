@@ -1,7 +1,8 @@
 import time, pytest
 from templates.templates import Templates
 from basic import element_is_present
-from conftest import enter_dev_lobby
+from conftest import enter_dev_lobby, enter_dev_lobby_with_popups
+
 
 @pytest.mark.skip
 def test_enter_shops(device_name, appium_driver):
@@ -115,3 +116,33 @@ def test_attention_mark(device_name, appium_driver):
     device_name.MainShop.ADS.tap(appium_driver)
     time.sleep(1)
     element_is_present(Templates.ATTENTION_MARK, 0.90, appium_driver)
+
+def test_install_car_upgrade(device_name, appium_driver):
+    """
+    """
+    enter_dev_lobby_with_popups(device_name, appium_driver)
+    time.sleep(1)
+
+    device_name.MainLobby.CAR_SHOP.tap(appium_driver)
+    time.sleep(2)
+    device_name.CarShop.ALREADY_HAVE.tap(appium_driver)
+    time.sleep(2)
+
+    device_name.CarShop.UPGRADE.tap(appium_driver)
+    time.sleep(2)
+    element_is_present(Templates.UPGRADE_CAR_SCREEN, 0.90, appium_driver)
+    time.sleep(2)
+
+    device_name.CarShop.BUY_UPGRADE.tap(appium_driver)
+    time.sleep(2)
+    element_is_present(Templates.BUY_UPGRADE_CONFIRM_SCREEN, 0.90, appium_driver)
+    time.sleep(2)
+    device_name.CarShop.BUY_UPGRADE_CONFIRM.tap(appium_driver)
+    time.sleep(7)
+
+    element_is_present(Templates.UPGRADE_REWARD_POPUP, 0.90, appium_driver)
+    time.sleep(2)
+    device_name.CarShop.CLAIM_REWARD_POPUP.tap(appium_driver)
+    time.sleep(2)
+
+    element_is_present(Templates.UPGRADED_CAR_SCREEN, 0.70, appium_driver)

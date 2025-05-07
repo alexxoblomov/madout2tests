@@ -16,9 +16,17 @@ class Templates:
     # test_google_login
 
     # test_clans_quick_join
-    CLAN_ENTRY = TEMPLATES_DIR / "test_clans" / "test_clans_quick_join" / "clan_entry.png"
+    # CLAN_ENTRY = TEMPLATES_DIR / "test_clans" / "test_clans_quick_join" / "clan_entry_point.png"
     QUICK_JOIN = TEMPLATES_DIR / "test_clans" / "test_clans_quick_join" / "quick_join.png"
     CLAN_META = TEMPLATES_DIR / "test_clans" / "test_clans_quick_join" / "clan_meta.png"
+
+    # test_clan_create_and_delete
+    CLAN_ENTRY_POINT = TEMPLATES_DIR / "test_clans" / "test_clan_create_and_delete" / "clan_entry_point.png"
+    CREATE_CLAN_BUTTON = TEMPLATES_DIR / "test_clans" / "test_clan_create_and_delete" / "create_clan_button.png"
+    CREATE_CLAN_SCREEN = TEMPLATES_DIR / "test_clans" / "test_clan_create_and_delete" / "create_clan_screen.png"
+    CLAN_META_SCREEN = TEMPLATES_DIR / "test_clans" / "test_clan_create_and_delete" / "clan_meta_screen.png"
+    CLAN_DELETE_POPUP = TEMPLATES_DIR / "test_clans" / "test_clan_create_and_delete" / "clan_delete_popup.png"
+    CLAN_DELETED_POPUP = TEMPLATES_DIR / "test_clans" / "test_clan_create_and_delete" / "clan_deleted_popup.png"
 
     # test_login_screen_state
     LOGIN_SCREEN = TEMPLATES_DIR / "test_login" / "test_login_screen_state" / "login_screen.png"
@@ -65,3 +73,9 @@ class Templates:
     GROW_FOUND_MAIN = TEMPLATES_DIR / "test_lobby" / "test_claim_grow_found_reward" / "grow_found_main.png"
     GROW_FOUND_1LVL_REWARD = TEMPLATES_DIR / "test_lobby" / "test_claim_grow_found_reward" / "grow_found_1lvl_reward.png"
     CLAIMED_1LVL_FREE_REWARD = TEMPLATES_DIR / "test_lobby" / "test_claim_grow_found_reward" / "claimed_1lvl_free_reward.png"
+
+    # test_install_car_upgrade
+    UPGRADE_CAR_SCREEN = TEMPLATES_DIR / "test_shops" / "test_install_car_upgrade" / "upgrade_car_screen.png"
+    UPGRADED_CAR_SCREEN = TEMPLATES_DIR / "test_shops" / "test_install_car_upgrade" / "upgraded_car_screen.png"
+    BUY_UPGRADE_CONFIRM_SCREEN = TEMPLATES_DIR / "test_shops" / "test_install_car_upgrade" / "upgrade_buy_confirm.png"
+    UPGRADE_REWARD_POPUP = TEMPLATES_DIR / "test_shops" / "test_install_car_upgrade" / "upgrade_reward_popup.png"

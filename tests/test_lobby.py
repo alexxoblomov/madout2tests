@@ -85,7 +85,7 @@ def test_claim_grow_found_reward(device_name, appium_driver):
     1. Входим в лобби;
     2. Проверяем точку входа в гроуфонд;
     3. Входим в гроуфонд, проверяем общее состояние окна;
-    4. Собираем награду за 1-ый уровень;
+    4. Собираем награду за 1-й уровень;
     5. Проверяем наградной поп-ап;
     6. Возвращаемся в гроуфонд, проверяем что награда забрана.
     """
@@ -104,3 +104,16 @@ def test_claim_grow_found_reward(device_name, appium_driver):
     time.sleep(2)
 
     element_is_present(Templates.CLAIMED_1LVL_FREE_REWARD, 0.90, appium_driver)
+
+
+def test_subscribe_to_get_rewards(device_name, appium_driver):
+    """
+    """
+    enter_dev_lobby(device_name, appium_driver)
+    time.sleep(1)
+
+    # перейти в раздел подписок
+    # проверить экран
+    # переходить по соцсетям
+    # проверять ссылку в адресной строке
+    # проверять поп-апы с наградой

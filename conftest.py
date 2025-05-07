@@ -62,7 +62,24 @@ def enter_login_screen(device_name, appium_driver: object) -> None:
 
 
 def enter_dev_lobby(device_name, appium_driver: object) -> None:
+    # waiting for env screen
     time.sleep(8)
+
+    # disable UI junk
+    device_name.EnvScreen.ACTIVE_SYSTEMS.tap(appium_driver)
+    time.sleep(1)
+    device_name.EnvScreen.ACTIVE_SYSTEMS_FLAGS.tap(appium_driver)
+    time.sleep(1)
+    device_name.EnvScreen.LOGS_REPORTER.tap(appium_driver)
+    time.sleep(1)
+    device_name.EnvScreen.AUTO_PRESENTATION.tap(appium_driver)
+    time.sleep(1)
+    device_name.EnvScreen.SHOW_LOADING_UI.tap(appium_driver)
+    time.sleep(1)
+    device_name.EnvScreen.SHOW_POPUPS.tap(appium_driver)
+    time.sleep(1)
+    device_name.EnvScreen.CLOSE_ACTIVE_SYSTEMS.tap(appium_driver)
+    time.sleep(1)
 
     device_name.EnvScreen.DEV.tap(appium_driver)
     time.sleep(1)
@@ -76,12 +93,36 @@ def enter_dev_lobby(device_name, appium_driver: object) -> None:
     device_name.LoginScreen.PROLOGUE_SKIP.tap(appium_driver)
     time.sleep(5)
 
-    device_name.MainLobby.GROW_FOUND_POPUP_CLOSE.tap(appium_driver)
+
+def enter_dev_lobby_with_popups(device_name, appium_driver: object) -> None:
+    # waiting for env screen
+    time.sleep(8)
+
+    # disable UI junk
+    device_name.EnvScreen.ACTIVE_SYSTEMS.tap(appium_driver)
     time.sleep(1)
-    device_name.MainLobby.DAILY_LOGIN_REWARD_POPUP_CLOSE.tap(appium_driver)
-    time.sleep(3)
-    device_name.MainLobby.CLAIM_REWARD_POPUP.tap(appium_driver)
+    device_name.EnvScreen.ACTIVE_SYSTEMS_FLAGS.tap(appium_driver)
     time.sleep(1)
+    device_name.EnvScreen.LOGS_REPORTER.tap(appium_driver)
+    time.sleep(1)
+    device_name.EnvScreen.AUTO_PRESENTATION.tap(appium_driver)
+    time.sleep(1)
+    device_name.EnvScreen.SHOW_LOADING_UI.tap(appium_driver)
+    time.sleep(1)
+    device_name.EnvScreen.CLOSE_ACTIVE_SYSTEMS.tap(appium_driver)
+    time.sleep(1)
+
+    device_name.EnvScreen.DEV.tap(appium_driver)
+    time.sleep(1)
+    device_name.EnvScreen.CLOSE.tap(appium_driver)
+    time.sleep(2)
+
+    device_name.LoginScreen.WELCOME_SCREEN.tap(appium_driver)
+    time.sleep(2)
+    device_name.LoginScreen.GUEST_LOGIN.tap(appium_driver)
+    time.sleep(45)
+    device_name.LoginScreen.PROLOGUE_SKIP.tap(appium_driver)
+    time.sleep(5)
 
 
 def enter_prod_lobby(device, appium_driver: object) -> None:
