@@ -27,7 +27,8 @@ class PocoX6:
         APPEARANCE_SHOP = Button(x=1598, y=400)
         WEAPON_SHOP = Button(x=1885, y=581)
 
-        ONLINE_GAME = Button(x=2404, y=965)
+        GAME_MODE = Button(x=2404, y=965)
+        SINGLE_MODE = Button(x=724, y=624)
         SERVER_LIST = Button(x=2060, y=934)
 
     class MainShop:
@@ -106,7 +107,10 @@ class PocoX6:
         WELCOME_SCREEN = Button(x=1342, y=855)
         GUEST_LOGIN = Button(x=780, y=880)
         PROLOGUE_SKIP = Button(x=24, y=1172)
+
         GOOGLE_LOGIN = Button(x=1542, y=880)
+        GOOGLE_ACCOUNT = Button(x=1286, y=612)
+
         FACEBOOK_LOGIN = Button(x=1180, y=880)
         #
 

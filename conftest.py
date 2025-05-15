@@ -52,6 +52,21 @@ def appium_driver(request):
 def enter_login_screen(device_name, appium_driver: object) -> None:
     time.sleep(8)
 
+    device_name.EnvScreen.ACTIVE_SYSTEMS.tap(appium_driver)
+    time.sleep(1)
+    device_name.EnvScreen.ACTIVE_SYSTEMS_FLAGS.tap(appium_driver)
+    time.sleep(1)
+    device_name.EnvScreen.LOGS_REPORTER.tap(appium_driver)
+    time.sleep(1)
+    device_name.EnvScreen.AUTO_PRESENTATION.tap(appium_driver)
+    time.sleep(1)
+    device_name.EnvScreen.SHOW_LOADING_UI.tap(appium_driver)
+    time.sleep(1)
+    device_name.EnvScreen.SHOW_POPUPS.tap(appium_driver)
+    time.sleep(1)
+    device_name.EnvScreen.CLOSE_ACTIVE_SYSTEMS.tap(appium_driver)
+    time.sleep(1)
+
     device_name.EnvScreen.DEV.tap(appium_driver)
     time.sleep(2)
     device_name.EnvScreen.CLOSE.tap(appium_driver)

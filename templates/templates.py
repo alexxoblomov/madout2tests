@@ -14,6 +14,7 @@ class Templates:
     EMPTY_SERVER_LIST = TEMPLATES_DIR / "test_lobby" / "test_guest_login_and_check_server_list" / "empty_server_list.png"
 
     # test_google_login
+    SINGLE_MODE_HOUSE = TEMPLATES_DIR / "test_login" / "test_google_login_and_go_single_mode" / "single_mode_house.png"
 
     # test_clans_quick_join
     # CLAN_ENTRY = TEMPLATES_DIR / "test_clans" / "test_clans_quick_join" / "clan_entry_point.png"

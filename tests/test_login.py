@@ -1,11 +1,13 @@
 import time, pytest
 from templates.templates import Templates
 from basic import element_is_present, check_element_by_xpath, element_is_not_present
-from conftest import enter_dev_lobby, enter_login_screen
+from conftest import enter_dev_lobby, enter_login_screen, enter_dev_lobby_with_popups
 
 
 def test_login_screen_state(device_name, appium_driver):
     """
+    1. Входим на экран логина;
+    2. Проверяем состояние окна логина.
     """
     enter_login_screen(device_name, appium_driver)
     element_is_present(Templates.LOGIN_SCREEN, 0.90, appium_driver)
@@ -21,19 +23,43 @@ def test_guest_login_and_check_server_list(device_name, appium_driver):
     enter_dev_lobby(device_name, appium_driver)
     time.sleep(5)
     element_is_present(Templates.LOBBY_SCREEN, 0.90, appium_driver)
-    device_name.MainLobby.ONLINE_GAME.tap(appium_driver)
+    device_name.MainLobby.GAME_MODE.tap(appium_driver)
     time.sleep(2)
     device_name.MainLobby.SERVER_LIST.tap(appium_driver)
     time.sleep(5)
     element_is_not_present(Templates.EMPTY_SERVER_LIST, 0.80, appium_driver)
 
 
-@pytest.mark.skip
-def test_google_login(device_name, appium_driver):
+def test_google_login_and_go_single_mode(device_name, appium_driver):
     """
-    Реализуемо только на release-like билде, подлежит обсуждению
+    Надо подумать, в какой аккаунт логиниться. Если их несколько тап может улететь не туда.
+    1. Входим в игру через логин гугла;
+    2. Переходим в режимы игры, выбираем сингл;
+    3. Проверяем, что появились у избушки игрока в сингле.
     """
+    enter_login_screen(device_name, appium_driver)
+    time.sleep(2)
+    device_name.LoginScreen.GOOGLE_LOGIN.tap(appium_driver)
+    time.sleep(5)
+    device_name.LoginScreen.GOOGLE_ACCOUNT.tap(appium_driver)
+    time.sleep(35)
+    device_name.LoginScreen.PROLOGUE_SKIP.tap(appium_driver)
+    time.sleep(5)
+    device_name.MainLobby.GAME_MODE.tap(appium_driver)
+    time.sleep(2)
+    device_name.MainLobby.SINGLE_MODE.tap(appium_driver)
+    time.sleep(20)
+    element_is_present(Templates.SINGLE_MODE_HOUSE, 0.50, appium_driver)
 
+
+@pytest.mark.skip
+def test_facebook_login(device_name, appium_driver):
+    """
+    Подумать, как провернуть это через впн.
+    1. Входим в игру через логин гугла;
+    2. Переходим в режимы игры, выбираем сингл;
+    3. Проверяем, что появились у избушки игрока в сингле.
+    """
 
 def test_tos_and_privacy_policy(device_name, appium_driver):
     """
