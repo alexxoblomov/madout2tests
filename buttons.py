@@ -43,12 +43,11 @@ class PocoX6:
         CLAN_DELETE_CONFIRM = Button(x=1118, y=905)
 
     class CreateClan:
-        # create screen
         CLAN_NAME = Button(x=549, y=243)
         CREATE_CLAN_BUTTON = Button(x=624, y=1130)
 
     class ClansSearch:
-        CLAN_QUICK_JOIN = Button(x=1666, y=1112)
+        CLAN_QUICK_JOIN_BUTTON = Button(x=1666, y=1112)
         CREATE_CLAN_BUTTON = Button(x=2322, y=1111)
 
     class GrowFound:
@@ -79,7 +78,6 @@ class PocoX6:
 
         CLAIM_REWARD_POPUP = Button(x=1355, y=1005)
 
-        # Надо что-то с неймингом сделать, определенно
         BUY = Button(x=2397, y=1130)
         UPGRADE = Button(x=2010, y=1130)
         BUY_UPGRADE = Button(x=2340, y=1130)
@@ -112,7 +110,6 @@ class PocoX6:
         GOOGLE_ACCOUNT = Button(x=1286, y=612)
 
         FACEBOOK_LOGIN = Button(x=1180, y=880)
-        #
 
         TERMS_OF_SERVICE = Button(x=1186, y=568)
         TOS_XPATH = '//android.widget.TextView[@text="MadOut 2| Terms of Use"]'

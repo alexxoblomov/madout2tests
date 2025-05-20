@@ -7,7 +7,7 @@ from conftest import appium_driver
 from utils import compare_with_template, get_screenshot
 
 
-def element_is_present(template_path, threshold, appium_driver) -> None:
+def screen_is_match(template_path, threshold, appium_driver) -> None:
     is_found, match_value = compare_with_template(
         get_screenshot(appium_driver),
         template_path=template_path,
@@ -18,15 +18,15 @@ def element_is_present(template_path, threshold, appium_driver) -> None:
         f"Элемент не найден на экране! Уровень совпадения: {match_value:.2f} (требуется ≥ 0.90)\n"
     )
 
-def element_is_not_present(template_path, threshold, appium_driver) -> None:
-    is_found, match_value = compare_with_template(
-        get_screenshot(appium_driver),
-        template_path=template_path,
-        threshold=threshold)
-
-    assert not is_found, (
-        f"Элемент найден на экране, хотя не должен был быть! Уровень совпадения: {match_value:.2f} (требуется < {threshold})\n"
-    )
+# def element_is_not_present(template_path, threshold, appium_driver) -> None:
+#     is_found, match_value = compare_with_template(
+#         get_screenshot(appium_driver),
+#         template_path=template_path,
+#         threshold=threshold)
+#
+#     assert not is_found, (
+#         f"Элемент найден на экране, хотя не должен был быть! Уровень совпадения: {match_value:.2f} (требуется < {threshold})\n"
+#     )
 
 def check_element_by_xpath(appium_driver, xpath, timeout=10):
     try:
