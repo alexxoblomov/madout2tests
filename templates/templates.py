@@ -58,9 +58,9 @@ class PocoX6:
         M4A1_REWARD_POPUP = BaseTemplates.TEMPLATES_DIR / "test_shops" / "test_buy_for_soft_and_hard" / "m4a1_reward_popup.png"
 
         # test_enter_shops
-        APPEARANCE_PRESETS_SCREEN = BaseTemplates.TEMPLATES_DIR / "test_shops" / "test_enter_shops" / "appearance_presets_screen.png"
-        WEAPON_SHOP_SCREEN = BaseTemplates.TEMPLATES_DIR / "test_shops" / "test_enter_shops" / "weapon_shop_screen.png"
-        CAR_SHOP_CITIZEN_SCREEN = BaseTemplates.TEMPLATES_DIR / "test_shops" / "test_enter_shops" / "car_shop_citizen_screen.png"
+        CAR_SHOP_MAIN_SCREEN = BaseTemplates.TEMPLATES_DIR / "test_shops" / "test_enter_shops" / "car_shop_main_screen.png"
+        WEAPON_SHOP_MAIN_SCREEN = BaseTemplates.TEMPLATES_DIR / "test_shops" / "test_enter_shops" / "weapon_shop_main_screen.png"
+        APPEARANCE_SHOP_MAIN_SCREEN = BaseTemplates.TEMPLATES_DIR / "test_shops" / "test_enter_shops" / "appearance_shop_main_screen.png"
 
         # test_attention_marks
         ATTENTION_MARK_UNSEEN = BaseTemplates.TEMPLATES_DIR / "test_shops" / "test_attention_marks" / "attention_mark_unseen.png"

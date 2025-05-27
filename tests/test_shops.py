@@ -3,10 +3,25 @@ from basic import screen_is_match
 from conftest import enter_dev_lobby_without_popups, enter_dev_lobby_with_popups
 
 
-@pytest.mark.skip
 def test_enter_shops(device_name, device_templates, appium_driver):
     """
+    1) Входим в лобби
+    2) Поочередно проверяем, что можем перейти в магазины через элементы лобби (машина, персонаж, оружие)
     """
+    enter_dev_lobby_without_popups(device_name, appium_driver)
+    device_name.MainLobby.CAR_SHOP_AREA.tap(appium_driver)
+    time.sleep(2)
+    screen_is_match(device_templates.ShopTemplates.CAR_SHOP_MAIN_SCREEN, 0.80, appium_driver)
+    device_name.MainShop.BACK_BUTTON.tap(appium_driver)
+    time.sleep(2)
+    device_name.MainLobby.WEAPON_SHOP_AREA.tap(appium_driver)
+    time.sleep(2)
+    screen_is_match(device_templates.ShopTemplates.WEAPON_SHOP_MAIN_SCREEN, 0.80, appium_driver)
+    device_name.MainShop.BACK_BUTTON.tap(appium_driver)
+    time.sleep(2)
+    device_name.MainLobby.APPEARANCE_SHOP_AREA.tap(appium_driver)
+    time.sleep(2)
+    screen_is_match(device_templates.ShopTemplates.APPEARANCE_SHOP_MAIN_SCREEN, 0.80, appium_driver)
 
 
 def test_buy_for_soft_and_hard(device_name, device_templates, appium_driver):
@@ -17,7 +32,7 @@ def test_buy_for_soft_and_hard(device_name, device_templates, appium_driver):
     4) Покупаем м4а1 за хард-валюту
     """
     enter_dev_lobby_with_popups(device_name, appium_driver)
-    device_name.MainLobby.WEAPON_SHOP.tap(appium_driver)
+    device_name.MainLobby.WEAPON_SHOP_AREA.tap(appium_driver)
     time.sleep(1)
     device_name.WeaponShop.ARMOR_SHOWCASE.tap(appium_driver)
     time.sleep(1)
@@ -36,6 +51,7 @@ def test_buy_for_soft_and_hard(device_name, device_templates, appium_driver):
     time.sleep(5)
     screen_is_match(device_templates.ShopTemplates.M4A1_REWARD_POPUP, 0.80, appium_driver)
 
+
 def test_install_car_upgrade(device_name, device_templates, appium_driver):
     """
     1) Входим в лобби
@@ -43,7 +59,7 @@ def test_install_car_upgrade(device_name, device_templates, appium_driver):
     3) Улучшаем его, проверяем наградной поп-ап
     """
     enter_dev_lobby_with_popups(device_name, appium_driver)
-    device_name.MainLobby.CAR_SHOP.tap(appium_driver)
+    device_name.MainLobby.CAR_SHOP_AREA.tap(appium_driver)
     time.sleep(2)
     device_name.CarShop.ALREADY_HAVE_PAGE.tap(appium_driver)
     time.sleep(2)
@@ -54,7 +70,7 @@ def test_install_car_upgrade(device_name, device_templates, appium_driver):
     screen_is_match(device_templates.ShopTemplates.UPGRADE_BUY_CONFIRM_SCREEN, 0.80, appium_driver)
     time.sleep(2)
     device_name.CarShop.BUY_UPGRADE_CONFIRM_BUTTON.tap(appium_driver)
-    time.sleep(7)
+    time.sleep(5)
     screen_is_match(device_templates.ShopTemplates.UPGRADE_REWARD_POPUP, 0.80, appium_driver)
 
 
@@ -67,7 +83,7 @@ def test_weapon_upgrade(device_name, device_templates, appium_driver):
     5) Пропускаем анимацию улучшения, проверяем экран
     """
     enter_dev_lobby_without_popups(device_name, appium_driver)
-    device_name.MainLobby.WEAPON_SHOP.tap(appium_driver)
+    device_name.MainLobby.WEAPON_SHOP_AREA.tap(appium_driver)
     time.sleep(2)
     device_name.WeaponShop.ARMOR_SHOWCASE.tap(appium_driver)
     time.sleep(2)

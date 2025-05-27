@@ -3,6 +3,7 @@ from appium.options.android import UiAutomator2Options
 from appium.options.ios import XCUITestOptions
 from appium.webdriver import Remote
 from devices import get_device_class, DEVICES
+from madout_apk.apk_path import MadoutAPK
 from templates.templates import PocoX6
 
 DEVICE_TEMPLATES = {
@@ -21,6 +22,11 @@ def pytest_addoption(parser):
         required=True,
         choices=list(DEVICES.keys()),
         help="Укажите устройство для тестов. Доступные варианты: %(choices)s"
+    )
+    parser.addoption(
+        "--apk",
+        action="store",
+        help="Укажите путь к APK файлу для тестирования"
     )
 
 
@@ -69,7 +75,7 @@ def appium_driver(request):
 
 def enter_login_screen_with_popups(device_name, appium_driver: object) -> None:
     """
-    Вход на экран логина с включенными поп-апами
+    Вход на экран логина с включенными попапами
     """
     time.sleep(8)
     device_name.EnvScreen.ACTIVE_SYSTEMS.tap(appium_driver)
@@ -121,7 +127,7 @@ def enter_login_screen_without_popups(device_name, appium_driver: object) -> Non
 
 def enter_dev_lobby_with_popups(device_name, appium_driver: object) -> None:
     """
-    Логин гостем на дев-окружение с включенными попапами
+    Логин гостем на дев-окружение с включенными попапами и отключенным прологом
     """
     time.sleep(8)
     device_name.EnvScreen.ACTIVE_SYSTEMS.tap(appium_driver)
@@ -134,6 +140,8 @@ def enter_dev_lobby_with_popups(device_name, appium_driver: object) -> None:
     time.sleep(1)
     device_name.EnvScreen.SHOW_LOADING_UI.tap(appium_driver)
     time.sleep(1)
+    device_name.EnvScreen.FTUE_ACTIVE.tap(appium_driver)
+    time.sleep(1)
     device_name.EnvScreen.CLOSE_ACTIVE_SYSTEMS.tap(appium_driver)
     time.sleep(1)
 
@@ -145,12 +153,15 @@ def enter_dev_lobby_with_popups(device_name, appium_driver: object) -> None:
     device_name.LoginScreen.WELCOME_SCREEN_BUTTON.tap(appium_driver)
     time.sleep(2)
     device_name.LoginScreen.GUEST_LOGIN_BUTTON.tap(appium_driver)
-    time.sleep(45)
-    device_name.LoginScreen.PROLOGUE_SKIP_BUTTON.tap(appium_driver)
-    time.sleep(5)
+    time.sleep(20)
 
-    # может меняться время от времени, просто комментить
+    """
+    Код ниже может меняться время от времени, просто комментить его по необходимости
+    Или что-то добавлять. Влияет в основном на тесты с попапами/покупками/сбором наград
+    """
     device_name.MainLobby.GROW_FOUND_POPUP_CLOSE.tap(appium_driver)
+    time.sleep(5)
+    device_name.MainLobby.BATTLE_PASS_POPUP_CLOSE.tap(appium_driver)
     time.sleep(5)
     device_name.MainLobby.DAILY_LOGIN_REWARD_POPUP_CLOSE.tap(appium_driver)
     time.sleep(5)
@@ -174,6 +185,8 @@ def enter_dev_lobby_without_popups(device_name, appium_driver: object) -> None:
     time.sleep(1)
     device_name.EnvScreen.SHOW_POPUPS.tap(appium_driver)
     time.sleep(1)
+    device_name.EnvScreen.FTUE_ACTIVE.tap(appium_driver)
+    time.sleep(1)
     device_name.EnvScreen.CLOSE_ACTIVE_SYSTEMS.tap(appium_driver)
     time.sleep(1)
 
@@ -185,9 +198,7 @@ def enter_dev_lobby_without_popups(device_name, appium_driver: object) -> None:
     device_name.LoginScreen.WELCOME_SCREEN_BUTTON.tap(appium_driver)
     time.sleep(2)
     device_name.LoginScreen.GUEST_LOGIN_BUTTON.tap(appium_driver)
-    time.sleep(45)
-    device_name.LoginScreen.PROLOGUE_SKIP_BUTTON.tap(appium_driver)
-    time.sleep(5)
+    time.sleep(20)
 
 
 def enter_with_google_login_with_popups(device_name, appium_driver):

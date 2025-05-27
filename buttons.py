@@ -20,14 +20,15 @@ class PocoX6:
 
         # popups
         CLAIM_REWARD_POPUP_BUTTON = Button(x=1355, y=1005)
+        BATTLE_PASS_POPUP_CLOSE = Button(x=2510, y=56)
         GROW_FOUND_POPUP_CLOSE = Button(x=2322, y=219)
         DAILY_LOGIN_REWARD_POPUP_CLOSE = Button(x=2485, y=69)
 
         # shops
         MAIN_SHOP = Button(x=387, y=1111)
-        CAR_SHOP = Button(x=1130, y=640)
-        APPEARANCE_SHOP = Button(x=1598, y=400)
-        WEAPON_SHOP = Button(x=1885, y=581)
+        CAR_SHOP_AREA = Button(x=1130, y=640)
+        APPEARANCE_SHOP_AREA = Button(x=1598, y=400)
+        WEAPON_SHOP_AREA = Button(x=1885, y=581)
 
         # gameplay features
         GAME_MODE = Button(x=2404, y=965)
@@ -35,7 +36,7 @@ class PocoX6:
         SERVER_LIST = Button(x=2060, y=934)
 
     class MainShop:
-        BACK = Button(x=175, y=56)
+        BACK_BUTTON = Button(x=175, y=56)
         ADS = Button(x=318, y=1118)
 
     class MainClans:
@@ -135,6 +136,7 @@ class PocoX6:
         AUTO_PRESENTATION = Button(x=955, y=318)
         SHOW_LOADING_UI = Button(x=955, y=755)
         SHOW_POPUPS = Button(x=1698, y=755)
+        FTUE_ACTIVE = Button(x=1698, y=899)
 
         CLOSE = Button(x=2541, y=169)
 

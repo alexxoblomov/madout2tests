@@ -51,5 +51,5 @@ def test_go_ftue(device_name, device_templates, appium_driver):
     device_name.LoginScreen.GUEST_LOGIN_BUTTON.tap(appium_driver)
     time.sleep(30)
     device_name.LoginScreen.PROLOGUE_SKIP_CUTSCENE.tap(appium_driver)
-    time.sleep(25)
+    time.sleep(35)
     screen_is_match(device_templates.LoginTemplates.FTUE_START_SCREEN, 0.80, appium_driver)
