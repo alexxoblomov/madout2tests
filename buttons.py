@@ -34,6 +34,7 @@ class PocoX6:
         GAME_MODE = Button(x=2404, y=965)
         SINGLE_MODE = Button(x=724, y=624)
         SERVER_LIST = Button(x=2060, y=934)
+        FIRST_SERVER_IN_LIST = Button(x=805, y=393)
 
     class MainShop:
         BACK_BUTTON = Button(x=175, y=56)

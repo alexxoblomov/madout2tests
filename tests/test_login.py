@@ -16,16 +16,20 @@ def test_login_screen_state(device_name, device_templates, appium_driver):
 
 def test_check_server_list_and_go_online(device_name, device_templates, appium_driver):
     """
+    1) Входим в лобби
+    2) Проверяем список серверов
+    3) Переходим на первый сервер
+    4) Смотрим, что оказались на сервере (низкий threshold, нужно быть внимательнее)
     """
     enter_dev_lobby_without_popups(device_name, appium_driver)
-    time.sleep(5)
-    screen_is_match(device_templates.LoginTemplates.LOBBY_SCREEN, 0.70, appium_driver)
-    time.sleep(2)
     device_name.MainLobby.GAME_MODE.tap(appium_driver)
     time.sleep(5)
     device_name.MainLobby.SERVER_LIST.tap(appium_driver)
     time.sleep(5)
-    # дописать коннект к серверу
+    screen_is_match(device_templates.LoginTemplates.SERVER_LIST_SCREEN, 0.40, appium_driver)
+    device_name.MainLobby.FIRST_SERVER_IN_LIST.tap(appium_driver)
+    time.sleep(15)
+    screen_is_match(device_templates.LoginTemplates.ONLINE_GAMEPLAY_SCREEN, 0.15, appium_driver)
 
 
 def test_go_single_mode(device_name, device_templates, appium_driver):

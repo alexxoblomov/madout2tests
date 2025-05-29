@@ -15,8 +15,8 @@ class PocoX6:
         """
         """
         # test_check_server_list_and_go_online
-        LOBBY_SCREEN = BaseTemplates.TEMPLATES_DIR / "test_login" / "test_check_server_list_and_go_online" / "lobby_screen.png"
-        EMPTY_SERVER_LIST = BaseTemplates.TEMPLATES_DIR / "test_login" / "test_check_server_list_and_go_online" / "empty_server_list.png"
+        SERVER_LIST_SCREEN = BaseTemplates.TEMPLATES_DIR / "test_login" / "test_check_server_list_and_go_online" / "server_list_screen.png"
+        ONLINE_GAMEPLAY_SCREEN = BaseTemplates.TEMPLATES_DIR / "test_login" / "test_check_server_list_and_go_online" / "online_gameplay_screen.png"
 
         # test_go_single_mode
         SINGLE_MODE_HOUSE = BaseTemplates.TEMPLATES_DIR / "test_login" / "test_go_single_mode" / "single_mode_house.png"
