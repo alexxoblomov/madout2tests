@@ -10,12 +10,21 @@ DEVICES = {
         "app": MadoutAPK.APP_PATH_MASTER,
         "automation_name": "UiAutomator2",
         "no_reset": False,
+    },
+    #
+    "tecno_spark": {
+        "platform_name": None,
+        "device_name": None,
+        "platform_version": None,
+        "app": MadoutAPK.APP_PATH_MASTER,
+        "automation_name": "UiAutomator2",
+        "no_reset": False,
     }
 }
 
 def get_device_class(device_name):
     devices = {
-        "poco_x6": PocoX6
+        "poco_x6": PocoX6,
     }
     return devices.get(device_name.lower())
 

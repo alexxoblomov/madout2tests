@@ -2,10 +2,9 @@ import random
 import time, pytest
 from appium.webdriver.extensions.android.nativekey import AndroidKey
 from basic import screen_is_match
-from conftest import enter_dev_lobby_without_popups, enter_with_google_login_without_popups
 
 
-def test_clans_quick_join(device_name, device_templates, appium_driver):
+def test_clans_quick_join(device_name, device_templates, enter_dev_lobby_without_popups, appium_driver):
     """
     1. Входим в лобби;
     2. Проверяем, что точка входа в кланы существует;
@@ -14,7 +13,6 @@ def test_clans_quick_join(device_name, device_templates, appium_driver):
     5. Нажимаем на кнопку быстрого присоединения;
     6. Проверяем, что действительно оказались в мете клана.
     """
-    enter_dev_lobby_without_popups(device_name, appium_driver)
     screen_is_match(device_templates.ClansTemplates.CLANS_ENTRY_POINT, 0.70, appium_driver)
     device_name.MainLobby.CLANS_ENTRY_POINT.tap(appium_driver)
     time.sleep(1)
@@ -24,7 +22,7 @@ def test_clans_quick_join(device_name, device_templates, appium_driver):
     screen_is_match(device_templates.ClansTemplates.CLAN_META_SCREEN, 0.50, appium_driver)
 
 
-def test_clan_create_and_delete(device_name, device_templates, appium_driver):
+def test_clan_create_and_delete(device_name, device_templates, enter_dev_lobby_without_popups, appium_driver):
     """
     1. Входим в лобби;
     2. Проверяем точку входа в кланы;
@@ -37,8 +35,6 @@ def test_clan_create_and_delete(device_name, device_templates, appium_driver):
     9. Удаляем клан;
     10. Проверяем попап после удаления.
     """
-    enter_dev_lobby_without_popups(device_name, appium_driver)
-    time.sleep(1)
     screen_is_match(device_templates.ClansTemplates.CLANS_ENTRY_POINT, 0.70, appium_driver)
     device_name.MainLobby.CLANS_ENTRY_POINT.tap(appium_driver)
     time.sleep(1)

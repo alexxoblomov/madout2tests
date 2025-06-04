@@ -17,15 +17,18 @@ class PocoX6:
         DAILY_LOGIN_ENTRY_POINT = Button(x=1136, y=69)
         QUESTS_ENTRY_POINT = Button(x=2404, y=400)
         GROW_FOUND_ENTRY_POINT = Button(x=318, y=231)
+        FRIEND_LIST_ENTRY_POINT = Button(x=643, y=75)
 
         # popups
         CLAIM_REWARD_POPUP_BUTTON = Button(x=1355, y=1005)
         BATTLE_PASS_POPUP_CLOSE = Button(x=2510, y=56)
         GROW_FOUND_POPUP_CLOSE = Button(x=2322, y=219)
         DAILY_LOGIN_REWARD_POPUP_CLOSE = Button(x=2485, y=69)
+        DAILY_LOGIN_SCREEN_CLOSE = Button(x=2360, y=144)
+        SKIP_NEW_SYSTEM_POPUPS = Button(x=1629, y=50)
 
         # shops
-        MAIN_SHOP = Button(x=387, y=1111)
+        MAIN_SHOP_BUTTON = Button(x=387, y=1111)
         CAR_SHOP_AREA = Button(x=1130, y=640)
         APPEARANCE_SHOP_AREA = Button(x=1598, y=400)
         WEAPON_SHOP_AREA = Button(x=1885, y=581)
@@ -36,9 +39,27 @@ class PocoX6:
         SERVER_LIST = Button(x=2060, y=934)
         FIRST_SERVER_IN_LIST = Button(x=805, y=393)
 
+    class FriendList:
+        FRIENDS_TAB = Button(x=368, y=175)
+        REQUESTS_TAB = Button(x=862, y=175)
+        FIND_USER_TAB = Button(x=1349, y=175)
+        BLOCKED_USERS_TAB = Button(x=1854, y=175)
+        FOLLOWERS_TAB = Button(x=2366, y=175)
+
+        ENTER_NICKNAME_STRING = Button(x=556, y=331)
+        FIND_USER_BUTTON = Button(x=2354, y=331)
+        FIRST_USER = Button(x=468, y=493)
+        ADD_FRIEND_BUTTON = Button(x=2060, y=362)
+        SKIP_POPUP_AREA = Button(x=1611, y=112)
+
     class MainShop:
+        # main page
         BACK_BUTTON = Button(x=175, y=56)
-        ADS = Button(x=318, y=1118)
+        ADS_CATEGORY_BUTTON = Button(x=318, y=1118)
+
+        # ads category
+        CLOSE_TEST_AD = Button(x=2547, y=56)
+        MARATHON_CH1_ADS_BUTTON = Button(x=1430, y=1030)
 
     class MainClans:
         CLAN_CREATE_CONFIRM_BUTTON = Button(x=1355, y=1055)

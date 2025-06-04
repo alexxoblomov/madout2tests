@@ -49,6 +49,10 @@ class PocoX6:
         DL_WEEK_3_SCREEN = BaseTemplates.TEMPLATES_DIR / "test_lobby_features" / "test_daily_login" / "dl_week_3_screen.png"
         DL_WEEK_4_SCREEN = BaseTemplates.TEMPLATES_DIR / "test_lobby_features" / "test_daily_login" / "dl_week_4_screen.png"
 
+        # test_search_and_add_friend
+        USER_SEARCH_SCREEN = BaseTemplates.TEMPLATES_DIR / "test_lobby_features" / "test_search_and_add_friend" / "user_search_screen.png"
+        FRIEND_LIST_SCREEN = BaseTemplates.TEMPLATES_DIR / "test_lobby_features" / "test_search_and_add_friend" / "friend_list_screen.png"
+
 
     class ShopTemplates(BaseTemplates):
         """
@@ -73,6 +77,10 @@ class PocoX6:
         # test_weapon_upgrade
         WEAPON_UPGRADE_MAIN_SCREEN = BaseTemplates.TEMPLATES_DIR / "test_shops" / "test_weapon_upgrade" / "weapon_upgrade_main_screen.png"
         WEAPON_UPGRADED_SCREEN = BaseTemplates.TEMPLATES_DIR / "test_shops" / "test_weapon_upgrade" / "weapon_upgraded_screen.png"
+
+        # test_watch_ads_marathon
+        TEST_AD_SCREEN = BaseTemplates.TEMPLATES_DIR / "test_shops" / "test_watch_ads_marathon" / "test_ad_screen.png"
+        AD_REWARD_POPUP = BaseTemplates.TEMPLATES_DIR / "test_shops" / "test_watch_ads_marathon" / "ad_reward_popup.png"
 
 
     class ClansTemplates(BaseTemplates):

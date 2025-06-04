@@ -73,7 +73,8 @@ def appium_driver(request):
     driver.quit()
 
 
-def enter_login_screen_with_popups(device_name, appium_driver: object) -> None:
+@pytest.fixture
+def enter_dev_login_screen_with_popups(device_name, appium_driver: object) -> None:
     """
     Вход на экран логина с включенными попапами
     """
@@ -98,7 +99,8 @@ def enter_login_screen_with_popups(device_name, appium_driver: object) -> None:
     time.sleep(3)
 
 
-def enter_login_screen_without_popups(device_name, appium_driver: object) -> None:
+@pytest.fixture
+def enter_dev_login_screen_without_popups(device_name, appium_driver: object) -> None:
     """
     Вход на экран логина с отключенными попапами
     """
@@ -125,6 +127,7 @@ def enter_login_screen_without_popups(device_name, appium_driver: object) -> Non
     time.sleep(3)
 
 
+@pytest.fixture
 def enter_dev_lobby_with_popups(device_name, appium_driver: object) -> None:
     """
     Логин гостем на дев-окружение с включенными попапами и отключенным прологом
@@ -161,13 +164,25 @@ def enter_dev_lobby_with_popups(device_name, appium_driver: object) -> None:
     """
     device_name.MainLobby.GROW_FOUND_POPUP_CLOSE.tap(appium_driver)
     time.sleep(5)
-    device_name.MainLobby.BATTLE_PASS_POPUP_CLOSE.tap(appium_driver)
-    time.sleep(5)
-    device_name.MainLobby.DAILY_LOGIN_REWARD_POPUP_CLOSE.tap(appium_driver)
-    time.sleep(5)
-    device_name.MainLobby.CLAIM_REWARD_POPUP_BUTTON.tap(appium_driver)
+    device_name.MainLobby.SKIP_NEW_SYSTEM_POPUPS.tap(appium_driver)
+    time.sleep(1)
+    device_name.MainLobby.SKIP_NEW_SYSTEM_POPUPS.tap(appium_driver)
+    time.sleep(1)
+    device_name.MainLobby.SKIP_NEW_SYSTEM_POPUPS.tap(appium_driver)
+    time.sleep(1)
+    device_name.MainLobby.SKIP_NEW_SYSTEM_POPUPS.tap(appium_driver)
+    time.sleep(1)
+    device_name.MainLobby.SKIP_NEW_SYSTEM_POPUPS.tap(appium_driver)
+    time.sleep(1)
+
+    # device_name.MainLobby.BATTLE_PASS_POPUP_CLOSE.tap(appium_driver)
+    # time.sleep(5)
+    # device_name.MainLobby.DAILY_LOGIN_REWARD_POPUP_CLOSE.tap(appium_driver)
+    # time.sleep(5)
+    # device_name.MainLobby.CLAIM_REWARD_POPUP_BUTTON.tap(appium_driver)
 
 
+@pytest.fixture
 def enter_dev_lobby_without_popups(device_name, appium_driver: object) -> None:
     """
     Логин гостем на дев-окружение с отключенными попапами
@@ -201,37 +216,55 @@ def enter_dev_lobby_without_popups(device_name, appium_driver: object) -> None:
     time.sleep(20)
 
 
-def enter_with_google_login_with_popups(device_name, appium_driver):
-    """
-    Логин через гугл на дев-окружение с включенными попапами
-    """
-    enter_login_screen_with_popups(device_name, appium_driver)
-    time.sleep(2)
-    device_name.LoginScreen.GOOGLE_LOGIN_BUTTON.tap(appium_driver)
-    time.sleep(5)
-    device_name.LoginScreen.GOOGLE_ACCOUNT_BUTTON.tap(appium_driver)
-    time.sleep(35)
-    device_name.LoginScreen.PROLOGUE_SKIP_BUTTON.tap(appium_driver)
-    time.sleep(5)
+
+# def enter_with_google_login_with_popups(device_name, appium_driver):
+#     """
+#     Логин через гугл на дев-окружение с включенными попапами
+#     """
+#     enter_dev_login_screen_with_popups(device_name, appium_driver)
+#     time.sleep(2)
+#     device_name.LoginScreen.GOOGLE_LOGIN_BUTTON.tap(appium_driver)
+#     time.sleep(5)
+#     device_name.LoginScreen.GOOGLE_ACCOUNT_BUTTON.tap(appium_driver)
+#     time.sleep(35)
+#     device_name.LoginScreen.PROLOGUE_SKIP_BUTTON.tap(appium_driver)
+#     time.sleep(5)
+#
+#
+# def enter_with_google_login_without_popups(device_name, appium_driver):
+#     """
+#     Логин через гугл на дев-окружение c отключенными попапами
+#     """
+#     enter_dev_login_screen_without_popups(device_name, appium_driver)
+#     time.sleep(2)
+#     device_name.LoginScreen.GOOGLE_LOGIN_BUTTON.tap(appium_driver)
+#     time.sleep(5)
+#     device_name.LoginScreen.GOOGLE_ACCOUNT_BUTTON.tap(appium_driver)
+#     time.sleep(35)
+#     device_name.LoginScreen.PROLOGUE_SKIP_BUTTON.tap(appium_driver)
+#     time.sleep(5)
 
 
-def enter_with_google_login_without_popups(device_name, appium_driver):
+def enter_prod_lobby_with_popups(device_name, appium_driver: object) -> None:
     """
-    Логин через гугл на дев-окружение c отключенными попапами
     """
-    enter_login_screen_without_popups(device_name, appium_driver)
-    time.sleep(2)
-    device_name.LoginScreen.GOOGLE_LOGIN_BUTTON.tap(appium_driver)
-    time.sleep(5)
-    device_name.LoginScreen.GOOGLE_ACCOUNT_BUTTON.tap(appium_driver)
-    time.sleep(35)
-    device_name.LoginScreen.PROLOGUE_SKIP_BUTTON.tap(appium_driver)
-    time.sleep(5)
-
-
-def enter_prod_lobby(device_name, appium_driver: object) -> None:
     pass
 
+def enter_prod_lobby_without_popups(device_name, appium_driver: object) -> None:
+    """
+    """
+    pass
+
+
+def enter_prod_login_screen_with_popups(device_name, appium_driver: object) -> None:
+    """
+    """
+    pass
+
+def enter_prod_login_screen_without_popups(device_name, appium_driver: object) -> None:
+    """
+    """
+    pass
 
 def enter_with_facebook_login(device_name, appium_driver: object) -> None:
     pass

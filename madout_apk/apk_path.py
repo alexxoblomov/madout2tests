@@ -1,8 +1,8 @@
 from pathlib import Path
 
 class MadoutAPK:
-    APP_PATH_V16 = str(Path(__file__).parent.parent / "madout_apk" / "Android-versions_16_12_05_2025.apk")
-    APP_PATH_MASTER = str(Path(__file__).parent.parent / "madout_apk" / "Android-master-bfbc65813d-1748440938.apk")
+    APP_PATH_V16 = str(Path(__file__).parent.parent / "madout_apk" / "Android-versions_16-fecbec7989-1748936515.apk")
+    APP_PATH_MASTER = str(Path(__file__).parent.parent / "madout_apk" / "Android-master-7a480dab54-1749030586.apk")
 
     """
     Попробовать создавать динамические пути через параметры
