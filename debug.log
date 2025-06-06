@@ -1,0 +1,4 @@
+ 2025-06-06 17:26:51,053 - conftest - INFO - Starting test: test_login_screen_state
+ 2025-06-06 17:27:24,134 - basic - INFO - Checking screen match for template: C:\Work\madout2tests\templates\test_login\test_login_screen_state\login_screen.png with threshold: 0.9
+ 2025-06-06 17:27:26,168 - basic - INFO - Screen matched successfully. Match value: 1.00 (threshold: 0.9)
+ 2025-06-06 17:27:26,619 - conftest - INFO - Finished test: test_login_screen_state

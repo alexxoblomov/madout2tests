@@ -1,19 +1,58 @@
-import time, pytest, questionary
+import sys
+import time, pytest, questionary, logging
 from appium.options.android import UiAutomator2Options
 from appium.options.ios import XCUITestOptions
 from appium.webdriver import Remote
 from devices import get_device_class, DEVICES
-from madout_apk.apk_path import MadoutAPK
 from templates.templates import PocoX6
+
+
+"""
+Логгер и его настройки
+logging.getLogger('appium') и т.д отключает поток лишних логов и оставляет только логи из тестов
+"""
+
+logging.basicConfig(
+    level=logging.DEBUG,
+    format=' %(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler("debug.log", mode='w'),
+        logging.StreamHandler(sys.stdout)
+    ],
+    force=True,
+)
+
+logging.getLogger('appium').setLevel(logging.WARNING)
+logging.getLogger('selenium').setLevel(logging.WARNING)
+logging.getLogger('urllib3').setLevel(logging.WARNING)
+logging.getLogger('requests').setLevel(logging.WARNING)
+logging.getLogger('werkzeug').setLevel(logging.ERROR)
+
+logger = logging.getLogger(__name__)
+
+@pytest.fixture(autouse=True)
+def log_test_start_end(request):
+    test_name = request.node.name
+    logger.info(f"Starting test: {test_name}")
+    yield
+    logger.info(f"Finished test: {test_name}")
+
+
+"""
+Словарь-хранилище шаблонов и функция-получение
+"""
 
 DEVICE_TEMPLATES = {
     "poco_x6": PocoX6,
 }
 
-
 def get_device_templates(device_name):
     return DEVICE_TEMPLATES.get(device_name)
 
+
+"""
+Основные фикстуры фреймворка
+"""
 
 def pytest_addoption(parser):
     parser.addoption(
@@ -67,7 +106,8 @@ def appium_driver(request):
     for key, value in device_config.items():
         setattr(options, key, value)
 
-    driver = Remote("http://127.0.0.1:4723", options=options)
+    driver = Remote("http://127.0.0.1:4723",
+                    options=options)
     driver.implicitly_wait(10)
     yield driver
     driver.quit()
@@ -132,6 +172,8 @@ def enter_dev_lobby_with_popups(device_name, appium_driver: object) -> None:
     """
     Логин гостем на дев-окружение с включенными попапами и отключенным прологом
     """
+    logger.info("fixture 'enter_dev_lobby_with_popups' is running")
+
     time.sleep(8)
     device_name.EnvScreen.ACTIVE_SYSTEMS.tap(appium_driver)
     time.sleep(1)
@@ -181,12 +223,14 @@ def enter_dev_lobby_with_popups(device_name, appium_driver: object) -> None:
     # time.sleep(5)
     # device_name.MainLobby.CLAIM_REWARD_POPUP_BUTTON.tap(appium_driver)
 
+    logger.info("fixture 'enter_dev_lobby_with_popups' executed successfully")
 
 @pytest.fixture
 def enter_dev_lobby_without_popups(device_name, appium_driver: object) -> None:
     """
     Логин гостем на дев-окружение с отключенными попапами
     """
+    logger.info("fixture 'enter_dev_lobby_without_popups' is running")
     time.sleep(8)
     device_name.EnvScreen.ACTIVE_SYSTEMS.tap(appium_driver)
     time.sleep(1)
@@ -213,37 +257,8 @@ def enter_dev_lobby_without_popups(device_name, appium_driver: object) -> None:
     device_name.LoginScreen.WELCOME_SCREEN_BUTTON.tap(appium_driver)
     time.sleep(2)
     device_name.LoginScreen.GUEST_LOGIN_BUTTON.tap(appium_driver)
-    time.sleep(20)
-
-
-
-# def enter_with_google_login_with_popups(device_name, appium_driver):
-#     """
-#     Логин через гугл на дев-окружение с включенными попапами
-#     """
-#     enter_dev_login_screen_with_popups(device_name, appium_driver)
-#     time.sleep(2)
-#     device_name.LoginScreen.GOOGLE_LOGIN_BUTTON.tap(appium_driver)
-#     time.sleep(5)
-#     device_name.LoginScreen.GOOGLE_ACCOUNT_BUTTON.tap(appium_driver)
-#     time.sleep(35)
-#     device_name.LoginScreen.PROLOGUE_SKIP_BUTTON.tap(appium_driver)
-#     time.sleep(5)
-#
-#
-# def enter_with_google_login_without_popups(device_name, appium_driver):
-#     """
-#     Логин через гугл на дев-окружение c отключенными попапами
-#     """
-#     enter_dev_login_screen_without_popups(device_name, appium_driver)
-#     time.sleep(2)
-#     device_name.LoginScreen.GOOGLE_LOGIN_BUTTON.tap(appium_driver)
-#     time.sleep(5)
-#     device_name.LoginScreen.GOOGLE_ACCOUNT_BUTTON.tap(appium_driver)
-#     time.sleep(35)
-#     device_name.LoginScreen.PROLOGUE_SKIP_BUTTON.tap(appium_driver)
-#     time.sleep(5)
-
+    time.sleep(25)
+    logger.info("fixture 'enter_dev_lobby_without_popups' executed successfully")
 
 def enter_prod_lobby_with_popups(device_name, appium_driver: object) -> None:
     """

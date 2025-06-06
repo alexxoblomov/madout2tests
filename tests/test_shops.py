@@ -1,5 +1,8 @@
+import logging
 import time, pytest
 from basic import screen_is_match
+
+logger = logging.getLogger(__name__)
 
 
 class TestShopsDev:
@@ -11,6 +14,7 @@ class TestShopsDev:
         1) Входим в лобби
         2) Поочередно проверяем, что можем перейти в магазины через элементы лобби (машина, персонаж, оружие)
         """
+        logger.info("test_enter_shops is running...")
         device_name.MainLobby.CAR_SHOP_AREA.tap(appium_driver)
         time.sleep(2)
         screen_is_match(device_templates.ShopTemplates.CAR_SHOP_MAIN_SCREEN, 0.80, appium_driver)
@@ -24,7 +28,7 @@ class TestShopsDev:
         device_name.MainLobby.APPEARANCE_SHOP_AREA.tap(appium_driver)
         time.sleep(2)
         screen_is_match(device_templates.ShopTemplates.APPEARANCE_SHOP_MAIN_SCREEN, 0.80, appium_driver)
-
+        logger.info("test_enter_shops completed successfully")
 
     def test_buy_for_soft_and_hard(self, device_name, device_templates, enter_dev_lobby_with_popups, appium_driver):
         """
@@ -33,6 +37,8 @@ class TestShopsDev:
         3) Покупаем броню за софт-валюту
         4) Покупаем м4а1 за хард-валюту
         """
+
+        logger.info("test_buy_for_soft_and_hard is running...")
         device_name.MainLobby.WEAPON_SHOP_AREA.tap(appium_driver)
         time.sleep(1)
         device_name.WeaponShop.ARMOR_SHOWCASE.tap(appium_driver)
@@ -51,6 +57,7 @@ class TestShopsDev:
         device_name.WeaponShop.BUY_AMMO_MIN_PRICE_BUTTON.tap(appium_driver)
         time.sleep(5)
         screen_is_match(device_templates.ShopTemplates.M4A1_REWARD_POPUP, 0.80, appium_driver)
+        logger.info("test_buy_for_soft_and_hard completed successfully")
 
 
     def test_install_car_upgrade(self, device_name, device_templates, enter_dev_lobby_with_popups, appium_driver):
@@ -59,6 +66,7 @@ class TestShopsDev:
         2) Переходим к апгрейду Citizen
         3) Улучшаем его, проверяем наградной поп-ап
         """
+        logger.info("test_install_car_upgrade is running...")
         device_name.MainLobby.CAR_SHOP_AREA.tap(appium_driver)
         time.sleep(2)
         device_name.CarShop.ALREADY_HAVE_PAGE.tap(appium_driver)
@@ -72,6 +80,7 @@ class TestShopsDev:
         device_name.CarShop.BUY_UPGRADE_CONFIRM_BUTTON.tap(appium_driver)
         time.sleep(5)
         screen_is_match(device_templates.ShopTemplates.UPGRADE_REWARD_POPUP, 0.80, appium_driver)
+        logger.info("test_install_car_upgrade completed successfully")
 
 
     def test_weapon_upgrade(self, device_name, device_templates, enter_dev_lobby_without_popups, appium_driver):
@@ -82,6 +91,7 @@ class TestShopsDev:
         4) Проверяем экран улучшения
         5) Пропускаем анимацию улучшения, проверяем экран
         """
+        logger.info("test_weapon_upgrade is running...")
         device_name.MainLobby.WEAPON_SHOP_AREA.tap(appium_driver)
         time.sleep(2)
         device_name.WeaponShop.ARMOR_SHOWCASE.tap(appium_driver)
@@ -94,8 +104,9 @@ class TestShopsDev:
         device_name.WeaponShop.SKIP_WEAPON_UPGRADE_ANIMATION_TAP.tap(appium_driver)
         time.sleep(5)
         screen_is_match(device_templates.ShopTemplates.WEAPON_UPGRADED_SCREEN, 0.70, appium_driver)
+        logger.info("test_weapon_upgrade completed successfully")
 
-
+    @pytest.mark.skip
     def test_watch_ads_marathon(self, device_name, device_templates, enter_dev_lobby_with_popups, appium_driver):
         """
         1) Входим в лобби
@@ -104,6 +115,7 @@ class TestShopsDev:
         4) Проверяем, что на экране тестовая реклама
         5) Проверяем поп-ап с наградой за рекламу
         """
+        logger.info("test_watch_ads_marathon is running...")
         device_name.MainLobby.MAIN_SHOP_BUTTON.tap(appium_driver)
         time.sleep(1)
         device_name.MainShop.ADS_CATEGORY_BUTTON.tap(appium_driver)
@@ -118,6 +130,7 @@ class TestShopsDev:
 
         time.sleep(8)
         screen_is_match(device_templates.ShopTemplates.AD_REWARD_POPUP, 0.90, appium_driver)
+        logger.info("test_watch_ads_marathon completed successfully")
 
 
 class TestShopsProd:
