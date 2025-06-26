@@ -7,7 +7,7 @@ DEVICES = {
         "platform_name": "Android",
         "device_name": "PZW8WWFE49ZXLJDI",
         "platform_version": "14.0",
-        "app": MadoutAPK.APP_PATH_MASTER,
+        "app": MadoutAPK.APP_PATH_V17,
         "automation_name": "UiAutomator2",
         "no_reset": False,
     },

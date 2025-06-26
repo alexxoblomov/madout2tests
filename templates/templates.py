@@ -82,17 +82,25 @@ class PocoX6:
         TEST_AD_SCREEN = BaseTemplates.TEMPLATES_DIR / "test_shops" / "test_watch_ads_marathon" / "test_ad_screen.png"
         AD_REWARD_POPUP = BaseTemplates.TEMPLATES_DIR / "test_shops" / "test_watch_ads_marathon" / "ad_reward_popup.png"
 
+        # test_in_app_purchase
+        IN_APP_SOFT_1_REWARD_POPUP = BaseTemplates.TEMPLATES_DIR / "test_shops" / "test_in_app_purchase" / "in_app_soft_1_reward_popup.png"
+
 
     class ClansTemplates(BaseTemplates):
         """
-        Общие шаблоны для нескольких тестов:
-        CLAN_ENTRY_POINT = TEMPLATES_DIR / "test_clans" / "test_clans_quick_join" / "clan_entry_point.png"
-        CLAN_META_SCREEN = BaseTemplates.TEMPLATES_DIR / "test_clans" / "test_clan_create_and_delete" / "clan_meta_screen.png"
         """
 
         # test_clans_quick_join
         QUICK_JOIN_BUTTON = BaseTemplates.TEMPLATES_DIR / "test_clans" / "test_clans_quick_join" / "quick_join_button.png"
         CLAN_META_SCREEN = BaseTemplates.TEMPLATES_DIR / "test_clans" / "test_clans_quick_join" / "clan_meta_screen.png"
+
+        # test_sent_to_join_request
+        CLAN_TO_JOIN_SCREEN = BaseTemplates.TEMPLATES_DIR / "test_clans" / "test_sent_join_request" / "clan_to_join_screen.png"
+        REQUEST_AND_INVITES_SCREEN = BaseTemplates.TEMPLATES_DIR / "test_clans" / "test_sent_join_request" / "request_and_invites_screen.png"
+
+        # test_clan_manually_join
+        OPEN_CLAN_TO_JOIN_SCREEN = BaseTemplates.TEMPLATES_DIR / "test_clans" / "test_clan_manually_join" / "open_clan_to_join_screen.png"
+        OPEN_CLAN_TO_JOIN_META_SCREEN = BaseTemplates.TEMPLATES_DIR / "test_clans" / "test_clan_manually_join" / "open_clan_to_join_meta_screen.png"
 
         # test_clan_create_and_delete
         CLAN_ENTRY_POINT = BaseTemplates.TEMPLATES_DIR / "test_clans" / "test_clan_create_and_delete" / "clan_entry_point.png"

@@ -38,9 +38,7 @@ def log_test_start_end(request):
     logger.info(f"Finished test: {test_name}")
 
 
-"""
-Словарь-хранилище шаблонов и функция-получение
-"""
+"""Словарь-хранилище шаблонов и функция-получение"""
 
 DEVICE_TEMPLATES = {
     "poco_x6": PocoX6,
@@ -50,9 +48,14 @@ def get_device_templates(device_name):
     return DEVICE_TEMPLATES.get(device_name)
 
 
-"""
-Основные фикстуры фреймворка
-"""
+"""Вспомогательные функции, но не фикстуры"""
+
+def dev_mode_enabled(device_name, appium_driver):
+    pass
+
+
+
+"""Основные фикстуры фреймворка"""
 
 def pytest_addoption(parser):
     parser.addoption(

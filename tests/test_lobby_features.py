@@ -7,7 +7,7 @@ class TestLobbyFeaturesDev:
     """
     Набор для запуска на Dev окружении
     """
-    def test_claim_battle_pass_reward(self, device_name, device_templates, enter_dev_lobby_with_popups, appium_driver):
+    def test_claim_battle_pass_reward(self, device_name, device_templates, enter_dev_lobby_with_popups, log_test_start_end, appium_driver):
         """
         1) Входим в лобби
         2) Переходим в батлпасс
@@ -43,7 +43,7 @@ class TestLobbyFeaturesDev:
         screen_is_match(device_templates.LobbyTemplates.CLAIM_ALL_REWARDS_BUTTON_DISABLED, 0.90, appium_driver)
 
 
-    def test_claim_grow_found_reward(self, device_name, device_templates, enter_dev_lobby_with_popups, appium_driver):
+    def test_claim_grow_found_reward(self, device_name, device_templates, enter_dev_lobby_with_popups, log_test_start_end, appium_driver):
         """
         1) Входим в лобби
         2) Переходим в гроуфонд
@@ -59,7 +59,7 @@ class TestLobbyFeaturesDev:
         screen_is_match(device_templates.LobbyTemplates.GROW_FOUND_1LVL_REWARD_POPUP, 0.80, appium_driver)
 
 
-    def test_daily_login(self, device_name, device_templates, enter_dev_lobby_without_popups, appium_driver):
+    def test_daily_login(self, device_name, device_templates, enter_dev_lobby_without_popups, log_test_start_end, appium_driver):
         """
         1) Входим в лобби
         2) Переходим в раздел дейли-логина
@@ -79,7 +79,7 @@ class TestLobbyFeaturesDev:
         screen_is_match(device_templates.LobbyTemplates.DL_WEEK_4_SCREEN, 0.90, appium_driver)
 
 
-    def test_search_and_add_friend(self, device_name, device_templates, enter_dev_lobby_without_popups, appium_driver):
+    def test_search_and_add_friend(self, device_name, device_templates, enter_dev_lobby_without_popups, log_test_start_end, appium_driver):
         """
         """
         device_name.MainLobby.FRIEND_LIST_ENTRY_POINT.tap(appium_driver)

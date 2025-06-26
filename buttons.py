@@ -1,4 +1,9 @@
+import logging
 from dataclasses import dataclass
+
+
+logger = logging.getLogger(__name__)
+
 
 @dataclass
 class Button:
@@ -6,7 +11,13 @@ class Button:
     y: int
 
     def tap(self, driver):
-        driver.tap([(self.x, self.y)])
+        logger.debug(f"Tapping at coordinates: (x={self.x}, y={self.y})")
+        try:
+            driver.tap([(self.x, self.y)])
+            logger.debug("Tap successful")
+        except Exception as e:
+            logger.error(f"Failed to tap at (x={self.x}, y={self.y}): {str(e)}")
+            raise
 
 
 class PocoX6:
@@ -18,6 +29,7 @@ class PocoX6:
         QUESTS_ENTRY_POINT = Button(x=2404, y=400)
         GROW_FOUND_ENTRY_POINT = Button(x=318, y=231)
         FRIEND_LIST_ENTRY_POINT = Button(x=643, y=75)
+        PLAYER_PROFILE = Button(x=268, y=56)
 
         # popups
         CLAIM_REWARD_POPUP_BUTTON = Button(x=1355, y=1005)
@@ -39,6 +51,12 @@ class PocoX6:
         SERVER_LIST = Button(x=2060, y=934)
         FIRST_SERVER_IN_LIST = Button(x=805, y=393)
 
+    class PlayerProfile:
+        PROMO_CODES_STRING = Button(x=456, y=668)
+        SEND_PROMO_CODE_BUTTON = Button(x=1942, y=662)
+        DEVELOPER_POPUP_SKIP_AREA = Button(x=1667, y=81)
+        BACK_TO_LOBBY_BUTTON = Button(x=181, y=50)
+
     class FriendList:
         FRIENDS_TAB = Button(x=368, y=175)
         REQUESTS_TAB = Button(x=862, y=175)
@@ -53,9 +71,15 @@ class PocoX6:
         SKIP_POPUP_AREA = Button(x=1611, y=112)
 
     class MainShop:
+        DEV_TEST_BUY_BUTTON = Button(x=2235, y=649)
+
         # main page
         BACK_BUTTON = Button(x=175, y=56)
         ADS_CATEGORY_BUTTON = Button(x=318, y=1118)
+
+        IN_APP_SOFT_OFFERS = Button(x=312, y=718)
+        IN_APP_SOFT_1 = Button(x=687, y=1030)
+
 
         # ads category
         CLOSE_TEST_AD = Button(x=2547, y=56)
@@ -75,6 +99,10 @@ class PocoX6:
     class ClansSearch:
         CLAN_QUICK_JOIN_BUTTON = Button(x=1666, y=1112)
         CREATE_CLAN_BUTTON = Button(x=2322, y=1111)
+
+        CLANS_SEARCH_STRING = Button(x=425, y=1111)
+        REQUEST_OR_JOIN_1ST_CLAN_BUTTON = Button(x=2341, y=381)
+        REQUEST_AND_INVITES_TAB = Button(x=805, y=194)
 
     class GrowFound:
         CLAIM_1LVL_REWARD_BUTTON = Button(x=1330, y=468)
@@ -158,7 +186,7 @@ class PocoX6:
         AUTO_PRESENTATION = Button(x=955, y=318)
         SHOW_LOADING_UI = Button(x=955, y=755)
         SHOW_POPUPS = Button(x=1698, y=755)
-        FTUE_ACTIVE = Button(x=1698, y=899)
+        FTUE_ACTIVE = Button(x=206, y=1043)
 
         CLOSE = Button(x=2541, y=169)
 
